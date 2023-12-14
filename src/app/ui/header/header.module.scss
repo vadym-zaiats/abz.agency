@@ -4,6 +4,16 @@
   justify-content: space-between;
   align-items: center;
   margin: 12px 15px 0px 16px;
+  @media (min-width: 768px) {
+    margin: 12px 31px 0px 32.1px;
+  }
+  @media (min-width: 1024px) {
+    margin: 12px 59px 0px 60px;
+  }
+  @media (min-width: 1170px) {
+    width: 1170px;
+    margin: 12px auto 0px;
+  }
 }
 .header__logo {
   display: flex;
@@ -21,7 +31,7 @@
   border-radius: 25px;
   background-color: $primary-color;
   padding: 7.8px 28.7px;
-  margin: 0 0 0 0;
+
   font-size: 16px;
 }
 
