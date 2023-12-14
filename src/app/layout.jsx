@@ -1,11 +1,11 @@
 import "./global.css";
-import { Montserrat } from "next/font/google";
+import { Nunito } from "next/font/google";
 import Header from "./ui/header/header.jsx";
 import Footer from "./ui/footer/footer.jsx";
 import { StoreProvider } from "@/redux/slices/StoreProvider";
 import styles from "./layout.module.scss";
 
-const mont = Montserrat({ subsets: ["latin"], weight: "900" });
+const mont = Nunito({ subsets: ["latin"], weight: "400" });
 
 export const metadata = {
   title: "abz.agency",

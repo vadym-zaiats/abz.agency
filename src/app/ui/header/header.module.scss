@@ -1,1 +1,35 @@
 @import "../../scss/variables";
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12px 15px 0px 16px;
+}
+.header__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &--text {
+    margin: 2px 0px 0px 2px;
+  }
+  &--img {
+    margin: 1px 0px 0px 0px;
+  }
+}
+.header__users {
+  border: none;
+  border-radius: 25px;
+  background-color: $primary-color;
+  padding: 7.8px 28.7px;
+  margin: 0 0 0 0;
+  font-size: 16px;
+}
+
+.header__sign-up {
+  border: none;
+  border-radius: 25px;
+  background-color: $primary-color;
+  padding: 7.8px 23.1px;
+  margin: 1px 1px 0 10px;
+  font-size: 16px;
+}
