@@ -3,7 +3,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 12px 15px 0px 16px;
+  margin: 12px 15px 13px 16px;
+  & button {
+    border: none;
+    border-radius: 25px;
+    background-color: $primary-color;
+    font-size: 16px;
+  }
   @media (min-width: 768px) {
     margin: 12px 31px 0px 32.1px;
   }
@@ -27,19 +33,18 @@
   }
 }
 .header__users {
-  border: none;
-  border-radius: 25px;
-  background-color: $primary-color;
+  // border: none;
+  // border-radius: 25px;
+  // background-color: $primary-color;
+  // font-size: 16px;
   padding: 7.8px 28.7px;
-
-  font-size: 16px;
 }
 
 .header__sign-up {
-  border: none;
-  border-radius: 25px;
-  background-color: $primary-color;
-  padding: 7.8px 23.1px;
+  // border: none;
+  // border-radius: 25px;
+  // background-color: $primary-color;
+  // font-size: 16px;
   margin: 1px 1px 0 10px;
-  font-size: 16px;
+  padding: 7.8px 23.1px;
 }
