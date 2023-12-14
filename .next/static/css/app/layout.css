@@ -161,18 +161,18 @@ body {
 }
 @media (min-width: 768px) {
   .header_header__if0Yv {
-    margin: 12px 31px 0px 32.1px;
+    margin: 12px 31px 13px 32.1px;
   }
 }
 @media (min-width: 1024px) {
   .header_header__if0Yv {
-    margin: 12px 59px 0px 60px;
+    margin: 12px 59px 13px 60px;
   }
 }
 @media (min-width: 1170px) {
   .header_header__if0Yv {
     width: 1170px;
-    margin: 12px auto 0px;
+    margin: 12px auto 13px;
   }
 }
 
