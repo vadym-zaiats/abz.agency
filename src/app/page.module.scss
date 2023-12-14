@@ -1,4 +1,20 @@
 @import "./scss/variables";
 
-.main-wrapper {
+.main {
+  text-align: center;
+}
+
+.main__title {
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+}
+
+.main__button {
+  border: none;
+  border-radius: 25px;
+  background-color: $primary-color;
+  padding: 7.8px 23.1px;
+  font-size: 16px;
 }
