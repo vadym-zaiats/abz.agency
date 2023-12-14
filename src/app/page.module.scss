@@ -1,4 +1,66 @@
 @import "./scss/variables";
 
-.main-wrapper {
+.main__wall {
+  flex: 1 1 auto;
+  text-align: center;
+  background-image: url("../../public/imgs/bg-s.png");
+  background-size: cover;
+  background-position: 0% center;
+  background-repeat: no-repeat;
+  height: 500px;
+  @media (min-width: 768px) {
+    background-image: url("../../public/imgs/bg-m.png");
+  }
+  @media (min-width: 1024px) {
+    background-image: url("../../public/imgs/bg-l.png");
+    height: 650px;
+  }
+  @media (min-width: 1170px) {
+    margin: 0 auto;
+    max-width: 1170px;
+    background-image: url("../../public/imgs/bg-xl.png");
+  }
+}
+
+.main__wrapper {
+  margin: 0px auto 0px;
+  color: #fff;
+}
+
+.main__title {
+  margin: 0px auto 0px;
+  max-width: 380px;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  padding: 40px 16px 0px 16px;
+  @media (min-width: 768px) {
+    padding: 89px 0px 0px;
+  }
+  @media (min-width: 1024px) {
+    padding: 164px 0px 0px;
+  }
+}
+
+.main__text {
+  margin: 0px auto 0px;
+  max-width: 380px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+  padding: 21px 16px 0px;
+  @media (min-width: 768px) {
+    max-width: 410px;
+  }
+}
+
+.main__button {
+  border: none;
+  border-radius: 25px;
+  background-color: $primary-color;
+  padding: 7.8px 23.1px;
+  font-size: 16px;
+  margin: 32px 0px 75px 0px;
 }

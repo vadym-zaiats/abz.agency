@@ -1,1 +1,42 @@
 @import "../../scss/variables";
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12px 15px 13px 16px;
+  & button {
+    border: none;
+    border-radius: 25px;
+    background-color: $primary-color;
+    font-size: 16px;
+  }
+  @media (min-width: 768px) {
+    margin: 12px 31px 13px 32.1px;
+  }
+  @media (min-width: 1024px) {
+    margin: 12px 59px 13px 60px;
+  }
+  @media (min-width: 1170px) {
+    width: 1170px;
+    margin: 12px auto 13px;
+  }
+}
+.header__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &--text {
+    margin: 2px 0px 0px 2px;
+  }
+  &--img {
+    margin: 1px 0px 0px 0px;
+  }
+}
+.header__users {
+  padding: 7.8px 28.7px;
+}
+
+.header__sign-up {
+  margin: 1px 1px 0 10px;
+  padding: 7.8px 23.1px;
+}

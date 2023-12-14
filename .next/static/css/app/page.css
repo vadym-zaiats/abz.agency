@@ -1,4 +1,79 @@
 /*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[12].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[12].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[12].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[12].oneOf[9].use[5]!./src/app/page.module.scss ***!
   \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.page_main__wall__cJyhu {
+  flex: 1 1 auto;
+  text-align: center;
+  background-image: url(/_next/static/media/bg-s.f7ba75b1.png);
+  background-size: cover;
+  background-position: 0% center;
+  background-repeat: no-repeat;
+  height: 500px;
+}
+@media (min-width: 768px) {
+  .page_main__wall__cJyhu {
+    background-image: url(/_next/static/media/bg-m.04ce69c1.png);
+  }
+}
+@media (min-width: 1024px) {
+  .page_main__wall__cJyhu {
+    background-image: url(/_next/static/media/bg-l.8cee9cdf.png);
+    height: 650px;
+  }
+}
+@media (min-width: 1170px) {
+  .page_main__wall__cJyhu {
+    margin: 0 auto;
+    max-width: 1170px;
+    background-image: url(/_next/static/media/bg-xl.4dbca6fd.png);
+  }
+}
 
+.page_main__wrapper__9yTbD {
+  margin: 0px auto 0px;
+  color: #fff;
+}
+
+.page_main__title__UrxqV {
+  margin: 0px auto 0px;
+  max-width: 380px;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  padding: 40px 16px 0px 16px;
+}
+@media (min-width: 768px) {
+  .page_main__title__UrxqV {
+    padding: 89px 0px 0px;
+  }
+}
+@media (min-width: 1024px) {
+  .page_main__title__UrxqV {
+    padding: 164px 0px 0px;
+  }
+}
+
+.page_main__text__tutML {
+  margin: 0px auto 0px;
+  max-width: 380px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+  padding: 21px 16px 0px;
+}
+@media (min-width: 768px) {
+  .page_main__text__tutML {
+    max-width: 410px;
+  }
+}
+
+.page_main__button__xWu_r {
+  border: none;
+  border-radius: 25px;
+  background-color: #f4e041;
+  padding: 7.8px 23.1px;
+  font-size: 16px;
+  margin: 32px 0px 75px 0px;
+}
