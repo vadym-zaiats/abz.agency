@@ -11,6 +11,15 @@
   @media (min-width: 768px) {
     background-image: url("../../public/imgs/bg-m.png");
   }
+  @media (min-width: 1024px) {
+    background-image: url("../../public/imgs/bg-l.png");
+    height: 650px;
+  }
+  @media (min-width: 1170px) {
+    margin: 0 auto;
+    max-width: 1170px;
+    background-image: url("../../public/imgs/bg-xl.png");
+  }
 }
 
 .main__wrapper {
@@ -28,6 +37,9 @@
   padding: 40px 16px 0px 16px;
   @media (min-width: 768px) {
     padding: 89px 0px 0px;
+  }
+  @media (min-width: 1024px) {
+    padding: 164px 0px 0px;
   }
 }
 

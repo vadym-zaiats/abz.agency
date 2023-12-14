@@ -15,6 +15,19 @@
     background-image: url(/_next/static/media/bg-m.04ce69c1.png);
   }
 }
+@media (min-width: 1024px) {
+  .page_main__wall__cJyhu {
+    background-image: url(/_next/static/media/bg-l.8cee9cdf.png);
+    height: 650px;
+  }
+}
+@media (min-width: 1170px) {
+  .page_main__wall__cJyhu {
+    margin: 0 auto;
+    max-width: 1170px;
+    background-image: url(/_next/static/media/bg-xl.4dbca6fd.png);
+  }
+}
 
 .page_main__wrapper__9yTbD {
   margin: 0px auto 0px;
@@ -33,6 +46,11 @@
 @media (min-width: 768px) {
   .page_main__title__UrxqV {
     padding: 89px 0px 0px;
+  }
+}
+@media (min-width: 1024px) {
+  .page_main__title__UrxqV {
+    padding: 164px 0px 0px;
   }
 }
 
