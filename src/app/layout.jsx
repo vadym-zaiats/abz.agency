@@ -2,7 +2,7 @@ import "./global.css";
 import { Nunito } from "next/font/google";
 import Header from "./ui/header/header.jsx";
 import Footer from "./ui/footer/footer.jsx";
-import { StoreProvider } from "@/redux/slices/StoreProvider";
+import { StoreProvider } from "@/redux/StoreProvider";
 import styles from "./layout.module.scss";
 
 export const nunito = Nunito({ subsets: ["latin"], weight: "400" });
