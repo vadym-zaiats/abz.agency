@@ -132,8 +132,8 @@
   &::after {
     content: "";
     display: block;
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
 
     background-color: $secondary-color;
     border-radius: 50%;
@@ -141,17 +141,12 @@
 
     position: absolute;
     top: 50%;
-    left: 4px;
+    left: 5px;
     transform: translate(0, -50%);
     z-index: 2;
 
     transition: opacity 0.3s linear;
   }
-}
-
-.form__frontend-input:checked + .form__frontend-label::before,
-.form__backend-input:checked + .form__backend-label::before {
-  //   border-color: red;
 }
 
 .form__frontend-input:checked + .form__frontend-label::after,
