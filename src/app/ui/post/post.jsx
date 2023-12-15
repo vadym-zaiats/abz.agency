@@ -33,7 +33,7 @@ export function Post() {
     photo: null,
   });
   const { name, email, phone, role, photo } = formData;
-  console.log(name, email, phone, role, photo);
+  console.log(name, email, phone, role, photo?.name);
 
   const handleChange = (e) => {
     const { name, value, type } = e.target;
@@ -60,7 +60,7 @@ export function Post() {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            onBlur={handleNameBlur}
+            onBlur={name ? null : handleNameBlur}
             onFocus={handleNameFocus}
             required
           />
@@ -80,7 +80,7 @@ export function Post() {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            onBlur={handleEmailBlur}
+            onBlur={email ? null : handleEmailBlur}
             onFocus={handleEmailFocus}
             required
           />
@@ -100,7 +100,7 @@ export function Post() {
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            onBlur={handlePhoneBlur}
+            onBlur={phone ? null : handlePhoneBlur}
             onFocus={handlePhoneFocus}
             required
           />
@@ -201,7 +201,9 @@ export function Post() {
           >
             Upload
           </label>
-          <p className={styles[`form__upload-file-name`]}>Upload your photo</p>
+          <p className={styles[`form__upload-file-name`]}>
+            {photo ? `${photo.name}` : "Upload your photo"}
+          </p>
         </div>
         <button className={styles[`form__button`]} type="submit">
           Sign up
