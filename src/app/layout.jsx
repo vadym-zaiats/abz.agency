@@ -5,7 +5,10 @@ import { Footer } from "./ui/footer/footer.jsx";
 import { StoreProvider } from "@/redux/StoreProvider";
 import styles from "./layout.module.scss";
 
-export const nunito = Nunito({ subsets: ["latin"], weight: "400" });
+export const nunito = Nunito({
+  subsets: ["latin"],
+  weight: ["200", "300", "400"],
+});
 
 export const metadata = {
   title: "abz.agency",

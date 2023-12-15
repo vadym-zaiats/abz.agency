@@ -252,3 +252,17 @@
   line-height: 26px;
   color: #7e7e7e;
 }
+
+.post_form__button__8gG3R {
+  border: none;
+  border-radius: 25px;
+  background-color: #b4b4b4;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.87);
+  padding: 9px 23px;
+  margin-top: 49px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  font-weight: 200;
+}
