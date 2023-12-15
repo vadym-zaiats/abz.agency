@@ -130,7 +130,7 @@ export function Post() {
               checked={formData.role === "qa"}
             />
             <label className={styles[`form__qa-label`]} for="form__qa-input">
-              Designer
+              QA
             </label>
           </div>
         </div>

@@ -129,12 +129,12 @@
   display: flex;
   flex-direction: column;
 }
-.post_form__position__eZxWP label:not(:last-child) {
+.post_form__position__eZxWP div:not(:last-child) {
   margin-bottom: 7px;
 }
 
 .post_form__position-title__sU4GO {
-  margin: 0px 0px 11px 0px;
+  margin: 0px 0px 15px 0px;
 }
 
 .post_form__frontend__NO9jL,
