@@ -158,7 +158,7 @@
 .post_form__backend-label__8FbGt,
 .post_form__designer-label___xSQq,
 .post_form__qa-label__CI_D2 {
-  padding-left: 25px;
+  padding-left: 32px;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -210,5 +210,45 @@
 }
 
 .post_form__upload__5uOkT {
-  margin-top: 45px;
+  margin-top: 47px;
+  border-radius: 4px;
+  border: 1px solid #d0cfcf;
+  width: 328px;
+  height: 54px;
+  position: relative;
+}
+
+.post_form__upload-input__NMgs1 {
+  width: 0px;
+  height: 0px;
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.post_form__upload-label__lBQdZ {
+  margin: 0 auto;
+  border-radius: 4px 0px 0px 4px;
+  border: 1px solid #000;
+  position: absolute;
+  left: -1px;
+  top: -1px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 26px 14.5px;
+}
+
+.post_form__upload-file-name__eOu2_ {
+  position: absolute;
+  top: 50%;
+  left: 30.1%;
+  transform: translate(0, -50%);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+  color: #7e7e7e;
 }

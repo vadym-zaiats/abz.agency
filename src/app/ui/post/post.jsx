@@ -134,15 +134,39 @@ export function Post() {
             </label>
           </div>
         </div>
-        <div className={styles[`form__upload`]}>
-          <label htmlFor="photo">Upload your photo:</label>
+        {/* <div className={styles[`form__upload`]}>
           <input
+            className={styles[`form__upload-input`]}
             type="file"
             id="photo"
             name="photo"
             onChange={handleChange}
             accept="image/*"
           />
+          <label
+            className={styles[`form__upload-label`]}
+            htmlFor="photo"
+            for="photo"
+          >
+            Upload
+          </label>
+        </div> */}
+        <div className={styles[`form__upload`]}>
+          <input
+            className={styles[`form__upload-input`]}
+            id="form__upload-input"
+            type="file"
+            name="photo"
+            onChange={handleChange}
+            accept="image/*"
+          />
+          <label
+            className={styles[`form__upload-label`]}
+            for="form__upload-input"
+          >
+            Upload
+          </label>
+          <p className={styles[`form__upload-file-name`]}>Upload your photo</p>
         </div>
         <button type="submit">Sign up</button>
       </form>
