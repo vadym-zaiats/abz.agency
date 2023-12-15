@@ -102,6 +102,37 @@ export function Post() {
               Backend developer
             </label>
           </div>
+          <div className={styles[`form__designer`]}>
+            <input
+              className={styles[`form__designer-input`]}
+              id="form__designer-input"
+              type="radio"
+              name="role"
+              value="designer"
+              onChange={handleChange}
+              checked={formData.role === "designer"}
+            />
+            <label
+              className={styles[`form__designer-label`]}
+              for="form__designer-input"
+            >
+              Designer
+            </label>
+          </div>
+          <div className={styles[`form__qa`]}>
+            <input
+              className={styles[`form__qa-input`]}
+              id="form__qa-input"
+              type="radio"
+              name="role"
+              value="qa"
+              onChange={handleChange}
+              checked={formData.role === "qa"}
+            />
+            <label className={styles[`form__qa-label`]} for="form__qa-input">
+              Designer
+            </label>
+          </div>
         </div>
         <div className={styles[`form__upload`]}>
           <label htmlFor="photo">Upload your photo:</label>

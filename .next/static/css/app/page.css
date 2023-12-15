@@ -138,12 +138,16 @@
 }
 
 .post_form__frontend__NO9jL,
-.post_form__backend__eqaK6 {
+.post_form__backend__eqaK6,
+.post_form__designer__koUgZ,
+.post_form__qa__I233C {
   position: relative;
 }
 
 .post_form__frontend-input__MQSwr,
-.post_form__backend-input__1_brQ {
+.post_form__backend-input__1_brQ,
+.post_form__designer-input___eOak,
+.post_form__qa-input___Ttfv {
   -webkit-appearance: none;
   -moz-appearance: none;
        appearance: none;
@@ -151,43 +155,57 @@
 }
 
 .post_form__frontend-label__1rNjG,
-.post_form__backend-label__8FbGt {
+.post_form__backend-label__8FbGt,
+.post_form__designer-label___xSQq,
+.post_form__qa-label__CI_D2 {
   padding-left: 25px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
   cursor: pointer;
 }
 .post_form__frontend-label__1rNjG::before,
-.post_form__backend-label__8FbGt::before {
+.post_form__backend-label__8FbGt::before,
+.post_form__designer-label___xSQq::before,
+.post_form__qa-label__CI_D2::before {
   content: "";
   display: block;
-  width: 16px;
-  height: 16px;
-  border: 1px solid black;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #00bdd3;
   background-color: #fff;
   border-radius: 50%;
   position: absolute;
-  top: 0;
+  top: 50%;
   left: 0;
+  transform: translate(0, -50%);
   z-index: 1;
   transition: border 0.3s linear;
 }
 .post_form__frontend-label__1rNjG::after,
-.post_form__backend-label__8FbGt::after {
+.post_form__backend-label__8FbGt::after,
+.post_form__designer-label___xSQq::after,
+.post_form__qa-label__CI_D2::after {
   content: "";
   display: block;
-  width: 10px;
-  height: 10px;
-  background-color: #000;
+  width: 12px;
+  height: 12px;
+  background-color: #00bdd3;
   border-radius: 50%;
   opacity: 0;
   position: absolute;
-  top: 3px;
-  left: 3px;
+  top: 50%;
+  left: 4px;
+  transform: translate(0, -50%);
   z-index: 2;
   transition: opacity 0.3s linear;
 }
 
 .post_form__frontend-input__MQSwr:checked + .post_form__frontend-label__1rNjG::after,
-.post_form__backend-input__1_brQ:checked + .post_form__backend-label__8FbGt::after {
+.post_form__backend-input__1_brQ:checked + .post_form__backend-label__8FbGt::after,
+.post_form__designer-input___eOak:checked + .post_form__designer-label___xSQq::after,
+.post_form__qa-input___Ttfv:checked + .post_form__qa-label__CI_D2::after {
   opacity: 1;
 }
 

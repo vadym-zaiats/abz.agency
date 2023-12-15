@@ -86,34 +86,45 @@
 }
 
 .form__frontend,
-.form__backend {
+.form__backend,
+.form__designer,
+.form__qa {
   position: relative;
 }
 
 .form__frontend-input,
-.form__backend-input {
+.form__backend-input,
+.form__designer-input,
+.form__qa-input {
   -webkit-appearance: none;
   appearance: none;
   position: absolute;
 }
 
 .form__frontend-label,
-.form__backend-label {
+.form__backend-label,
+.form__designer-label,
+.form__qa-label {
   padding-left: 25px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
   cursor: pointer;
   &::before {
     content: "";
     display: block;
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
 
-    border: 1px solid black;
+    border: 1px solid $secondary-color;
     background-color: #fff;
     border-radius: 50%;
 
     position: absolute;
-    top: 0;
+    top: 50%;
     left: 0;
+    transform: translate(0, -50%);
     z-index: 1;
 
     transition: border 0.3s linear;
@@ -121,16 +132,17 @@
   &::after {
     content: "";
     display: block;
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
 
-    background-color: #000;
+    background-color: $secondary-color;
     border-radius: 50%;
     opacity: 0;
 
     position: absolute;
-    top: 3px;
-    left: 3px;
+    top: 50%;
+    left: 4px;
+    transform: translate(0, -50%);
     z-index: 2;
 
     transition: opacity 0.3s linear;
@@ -143,7 +155,9 @@
 }
 
 .form__frontend-input:checked + .form__frontend-label::after,
-.form__backend-input:checked + .form__backend-label::after {
+.form__backend-input:checked + .form__backend-label::after,
+.form__designer-input:checked + .form__designer-label::after,
+.form__qa-input:checked + .form__qa-label::after {
   opacity: 1;
 }
 
