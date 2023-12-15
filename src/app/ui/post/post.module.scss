@@ -13,13 +13,23 @@
   text-align: center;
 }
 
-.form__name {
+.form__name,
+.form__email {
   width: 100%;
   background-color: transparent;
   border-radius: 4px;
   border: 1px solid #d0cfcf;
-  padding: 4.5px 0px;
-  margin-bottom: 50px;
+  margin-bottom: 50.5px;
+  position: relative;
+  padding: 4px 0;
+}
+
+.form__phone {
+  width: 100%;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid #d0cfcf;
+  position: relative;
 }
 
 .form__name-input,
@@ -39,15 +49,6 @@
   }
 }
 
-.form__email {
-  width: 100%;
-  background-color: transparent;
-  border-radius: 4px;
-  border: 1px solid #d0cfcf;
-  padding: 4.5px 0px;
-  margin-bottom: 50px;
-  position: relative;
-}
 .form__email-text {
   position: absolute;
   left: 15px;
@@ -118,7 +119,7 @@
     height: 20px;
 
     border: 1px solid $secondary-color;
-    background-color: #fff;
+    background-color: $background-color;
     border-radius: 50%;
 
     position: absolute;
@@ -211,4 +212,25 @@
   left: 50%;
   transform: translate(-50%, 0%);
   font-weight: 200;
+}
+
+.form__name-label,
+.form__email-label,
+.form__phone-label {
+  color: $placeholder-color;
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translate(0%, -50%);
+  transition: top 0.3s, font-size 0.3s;
+}
+
+.form__name-label.input-focused,
+.form__email-label.input-focused,
+.form__phone-label.input-focused {
+  top: -1px;
+  font-size: 12px;
+  background-color: $background-color;
+  padding: 0 5px;
+  left: 10px;
 }

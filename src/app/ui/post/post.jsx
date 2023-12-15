@@ -2,6 +2,29 @@ import styles from "./post.module.scss";
 import { useState } from "react";
 
 export function Post() {
+  const [nameIsFocused, setNameIsFocused] = useState(false);
+  const [emailIsFocused, setEmailIsFocused] = useState(false);
+  const [phoneIsFocused, setPhoneIsFocused] = useState(false);
+
+  const handleNameFocus = () => {
+    setNameIsFocused(true);
+  };
+  const handleNameBlur = () => {
+    setNameIsFocused(false);
+  };
+  const handleEmailFocus = () => {
+    setEmailIsFocused(true);
+  };
+  const handleEmailBlur = () => {
+    setEmailIsFocused(false);
+  };
+  const handlePhoneFocus = () => {
+    setPhoneIsFocused(true);
+  };
+  const handlePhoneBlur = () => {
+    setPhoneIsFocused(false);
+  };
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -9,6 +32,8 @@ export function Post() {
     role: "",
     photo: null,
   });
+  const { name, email, phone, role, photo } = formData;
+  console.log(name, email, phone, role, photo);
 
   const handleChange = (e) => {
     const { name, value, type } = e.target;
@@ -27,17 +52,25 @@ export function Post() {
     <div className={styles[`form`]}>
       <h2 className={styles[`form__title`]}>Working with POST request</h2>
       <form className={styles[`form__body`]} onSubmit={handleSubmit}>
-        <div className={styles[`form__name`]}>
+        <div className={`${styles["form__name"]}`}>
           <input
             className={styles[`form__name-input`]}
             type="text"
             id="name"
             name="name"
-            placeholder="Your name"
             value={formData.name}
             onChange={handleChange}
+            onBlur={handleNameBlur}
+            onFocus={handleNameFocus}
             required
           />
+          <label
+            className={`${styles["form__name-label"]} ${
+              nameIsFocused ? styles["input-focused"] : ""
+            }`}
+          >
+            Your name
+          </label>
         </div>
         <div className={styles[`form__email`]}>
           <input
@@ -45,11 +78,19 @@ export function Post() {
             type="email"
             id="email"
             name="email"
-            placeholder="Email"
             value={formData.email}
             onChange={handleChange}
+            onBlur={handleEmailBlur}
+            onFocus={handleEmailFocus}
             required
           />
+          <label
+            className={`${styles["form__email-label"]} ${
+              emailIsFocused ? styles["input-focused"] : ""
+            }`}
+          >
+            Email
+          </label>
         </div>
         <div className={styles[`form__phone`]}>
           <input
@@ -57,11 +98,19 @@ export function Post() {
             type="tel"
             id="phone"
             name="phone"
-            placeholder="Phone"
             value={formData.phone}
             onChange={handleChange}
+            onBlur={handlePhoneBlur}
+            onFocus={handlePhoneFocus}
             required
           />
+          <label
+            className={`${styles["form__phone-label"]} ${
+              phoneIsFocused ? styles["input-focused"] : ""
+            }`}
+          >
+            Phone
+          </label>
         </div>
         <div className={styles[`form__phone-valid`]}>
           +38 (XXX) XXX - XX - XX

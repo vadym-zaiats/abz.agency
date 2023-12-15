@@ -60,13 +60,23 @@
   text-align: center;
 }
 
-.post_form__name__KNIEa {
+.post_form__name__KNIEa,
+.post_form__email__WU0Uq {
   width: 100%;
   background-color: transparent;
   border-radius: 4px;
   border: 1px solid #d0cfcf;
-  padding: 4.5px 0px;
-  margin-bottom: 50px;
+  margin-bottom: 50.5px;
+  position: relative;
+  padding: 4px 0;
+}
+
+.post_form__phone__6sk1W {
+  width: 100%;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid #d0cfcf;
+  position: relative;
 }
 
 .post_form__name-input__QRK0w,
@@ -88,16 +98,6 @@
 .post_form__phone-input__76es3:focus,
 .post_form__email-input__2843r:focus {
   outline: none;
-}
-
-.post_form__email__WU0Uq {
-  width: 100%;
-  background-color: transparent;
-  border-radius: 4px;
-  border: 1px solid #d0cfcf;
-  padding: 4.5px 0px;
-  margin-bottom: 50px;
-  position: relative;
 }
 
 .post_form__email-text__FgXEw {
@@ -174,7 +174,7 @@
   width: 20px;
   height: 20px;
   border: 1px solid #00bdd3;
-  background-color: #fff;
+  background-color: #f8f8f8;
   border-radius: 50%;
   position: absolute;
   top: 50%;
@@ -265,4 +265,25 @@
   left: 50%;
   transform: translate(-50%, 0%);
   font-weight: 200;
+}
+
+.post_form__name-label__oxAV3,
+.post_form__email-label__Ztomx,
+.post_form__phone-label__adpgo {
+  color: #7e7e7e;
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translate(0%, -50%);
+  transition: top 0.3s, font-size 0.3s;
+}
+
+.post_form__name-label__oxAV3.post_input-focused__aEZt5,
+.post_form__email-label__Ztomx.post_input-focused__aEZt5,
+.post_form__phone-label__adpgo.post_input-focused__aEZt5 {
+  top: -1px;
+  font-size: 12px;
+  background-color: #f8f8f8;
+  padding: 0 5px;
+  left: 10px;
 }
