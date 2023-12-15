@@ -1,0 +1,152 @@
+@import "../../scss/variables";
+
+.form {
+  margin: 0 16px;
+}
+
+.form__title {
+  margin-bottom: 50px;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  text-align: center;
+}
+
+.form__name {
+  width: 100%;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid #d0cfcf;
+  padding: 4.5px 0px;
+  margin-bottom: 50px;
+}
+
+.form__name-input,
+.form__phone-input,
+.form__email-input {
+  width: 90%;
+  padding: 0;
+  margin: 14px 0px 14px 16px;
+  border: none;
+  background-color: transparent;
+  &::placeholder {
+    color: $placeholder-color;
+    font-size: 16px;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.form__email {
+  width: 100%;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid #d0cfcf;
+  padding: 4.5px 0px;
+  margin-bottom: 50px;
+  position: relative;
+}
+.form__email-text {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.form__phone {
+  width: 100%;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid #d0cfcf;
+  padding: 4.5px 0px;
+}
+
+.form__phone-valid {
+  margin: 5px 0px 0px 15px;
+  color: $placeholder-color;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+}
+
+.form__position {
+  margin: 29px 0px 0px 0px;
+  display: flex;
+  flex-direction: column;
+  & label:not(:last-child) {
+    margin-bottom: 7px;
+  }
+}
+
+.form__position-title {
+  margin: 0px 0px 11px 0px;
+}
+
+.form__frontend,
+.form__backend {
+  position: relative;
+}
+
+.form__frontend-input,
+.form__backend-input {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+
+.form__frontend-label,
+.form__backend-label {
+  padding-left: 25px;
+  cursor: pointer;
+  &::before {
+    content: "";
+    display: block;
+    width: 16px;
+    height: 16px;
+
+    border: 1px solid black;
+    background-color: #fff;
+    border-radius: 50%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    transition: border 0.3s linear;
+  }
+  &::after {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+
+    background-color: #000;
+    border-radius: 50%;
+    opacity: 0;
+
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    z-index: 2;
+
+    transition: opacity 0.3s linear;
+  }
+}
+
+.form__frontend-input:checked + .form__frontend-label::before,
+.form__backend-input:checked + .form__backend-label::before {
+  //   border-color: red;
+}
+
+.form__frontend-input:checked + .form__frontend-label::after,
+.form__backend-input:checked + .form__backend-label::after {
+  opacity: 1;
+}
+
+.form__upload {
+  margin-top: 45px;
+}

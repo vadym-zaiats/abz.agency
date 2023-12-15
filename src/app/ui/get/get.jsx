@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setPeoples, setMaxResult } from "@/redux/slices/peopleSlice";
 import { useEffect, useState } from "react";
 
-export default function Get() {
+export function Get() {
   const data = useSelector((state) => state.peoples.peoples);
   const maxRes = useSelector((state) => state.peoples.maxRes);
   const dispatch = useDispatch();

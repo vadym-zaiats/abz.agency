@@ -1,7 +1,8 @@
 "use client";
 
 import styles from "./page.module.scss";
-import Get from "./ui/get/get";
+import { Get } from "./ui/get/get";
+import { Post } from "./ui/post/post";
 
 export default function Home() {
   return (
@@ -21,7 +22,8 @@ export default function Home() {
           <button className={styles[`main__button`]}>Sign up</button>
         </div>
       </div> */}
-      <Get />
+      {/* <Get /> */}
+      <Post />
     </>
   );
 }
