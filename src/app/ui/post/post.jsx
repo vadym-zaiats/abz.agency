@@ -80,7 +80,7 @@ export function Post() {
             />
             <label
               className={styles[`form__frontend-label`]}
-              for="form__frontend-input"
+              htmlFor="form__frontend-input"
             >
               Frontend developer
             </label>
@@ -97,7 +97,7 @@ export function Post() {
             />
             <label
               className={styles[`form__backend-label`]}
-              for="form__backend-input"
+              htmlFor="form__backend-input"
             >
               Backend developer
             </label>
@@ -114,7 +114,7 @@ export function Post() {
             />
             <label
               className={styles[`form__designer-label`]}
-              for="form__designer-input"
+              htmlFor="form__designer-input"
             >
               Designer
             </label>
@@ -129,7 +129,10 @@ export function Post() {
               onChange={handleChange}
               checked={formData.role === "qa"}
             />
-            <label className={styles[`form__qa-label`]} for="form__qa-input">
+            <label
+              className={styles[`form__qa-label`]}
+              htmlFor="form__qa-input"
+            >
               QA
             </label>
           </div>
@@ -145,7 +148,7 @@ export function Post() {
           />
           <label
             className={styles[`form__upload-label`]}
-            for="form__upload-input"
+            htmlFor="form__upload-input"
           >
             Upload
           </label>
