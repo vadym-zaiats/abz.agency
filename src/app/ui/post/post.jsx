@@ -63,7 +63,7 @@ export function Post() {
             required
           />
         </div>
-        <div className={styles[`form__phone-valid`]} htmlFor="phone">
+        <div className={styles[`form__phone-valid`]}>
           +38 (XXX) XXX - XX - XX
         </div>
         <div className={styles[`form__position`]}>
