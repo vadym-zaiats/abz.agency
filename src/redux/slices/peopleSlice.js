@@ -4,6 +4,7 @@ const peopleSlice = createSlice({
   name: "peoples",
   initialState: {
     peoples: [],
+    maxRes: 0,
     isLoading: false,
   },
   reducers: {
@@ -23,15 +24,35 @@ const peopleSlice = createSlice({
       state.isLoading = false;
       state.error = action.error;
     });
+    builder.addCase(setMaxResult.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(setMaxResult.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.maxRes = action.payload;
+    });
+    builder.addCase(setMaxResult.rejected, (state, action) => {
+      state.isLoading = false;
+      state.error = action.error;
+    });
   },
 });
 export const setPeoples = createAsyncThunk(
   "peoples/setPeoples",
-  async (_, { dispatch, rejectWithValue }) => {
+  async ({ page }, { dispatch, rejectWithValue }) => {
     const data = await fetch(
-      "https://frontend-test-assignment-api.abz.agency/api/v1/users/"
+      `https://frontend-test-assignment-api.abz.agency/api/v1/users?page=${page}&count=6`
     ).then((res) => res.json());
     return data.users;
+  }
+);
+export const setMaxResult = createAsyncThunk(
+  "peoples/setMaxResult",
+  async (_, { dispatch, rejectWithValue }) => {
+    const data = await fetch(
+      `https://frontend-test-assignment-api.abz.agency/api/v1/users?count=100`
+    ).then((res) => res.json());
+    return data.users.length;
   }
 );
 export default peopleSlice.reducer;

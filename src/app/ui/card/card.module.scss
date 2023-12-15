@@ -1,9 +1,21 @@
 @import "../../scss/variables";
 
 .card {
+  background-color: #fff;
+  text-align: center;
+  border-radius: 10px;
+  padding: 20px;
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+.card__photo {
+  border-radius: 100%;
+  margin-bottom: 10px;
 }
 
 .card__name {
+  margin-bottom: 10px;
 }
 
 .card__position {

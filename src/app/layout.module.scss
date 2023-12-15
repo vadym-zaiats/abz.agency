@@ -1,7 +1,10 @@
+@import "@/app/scss/variables";
+
 .wrapper {
   min-height: 100%;
   display: flex;
   flex-direction: column;
+  background-color: $background-color;
 }
 .main {
   flex: 1 1 auto;

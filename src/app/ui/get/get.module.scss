@@ -3,6 +3,8 @@
 .get {
   margin: 0 auto;
   max-width: 328px;
+
+  text-align: center;
 }
 
 .get__title {
@@ -14,4 +16,13 @@
 }
 
 .get__cards {
+}
+
+.get__show-more {
+  border: none;
+  border-radius: 25px;
+  background-color: $primary-color;
+  font-size: 16px;
+  padding: 7.8px 23.1px;
+  margin-top: 50px;
 }

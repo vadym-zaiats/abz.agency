@@ -139,6 +139,7 @@ body {
   min-height: 100%;
   display: flex;
   flex-direction: column;
+  background-color: #f8f8f8;
 }
 
 .layout_main__30FUz {
