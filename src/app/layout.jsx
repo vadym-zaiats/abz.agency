@@ -1,7 +1,6 @@
 import "./global.css";
 import { Nunito } from "next/font/google";
 import { Header } from "./ui/header/header.jsx";
-import { Footer } from "./ui/footer/footer.jsx";
 import { StoreProvider } from "@/redux/StoreProvider";
 import styles from "./layout.module.scss";
 
@@ -21,9 +20,8 @@ export default function RootLayout({ children }) {
       <body className={nunito.className}>
         <StoreProvider>
           <div className={styles[`wrapper`]}>
-            {/* <Header /> */}
+            <Header />
             <main className={styles[`main`]}>{children}</main>
-            <Footer />
           </div>
         </StoreProvider>
       </body>

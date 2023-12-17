@@ -7,7 +7,7 @@ import { Post } from "./ui/post/post";
 export default function Home() {
   return (
     <>
-      {/* <div className={styles[`main__wall`]}>
+      <div className={styles[`main__wall`]}>
         <div className={styles[`main__wrapper`]}>
           <h1 className={styles[`main__title`]}>
             Test assignment for front-end developer
@@ -21,8 +21,8 @@ export default function Home() {
           </p>
           <button className={styles[`main__button`]}>Sign up</button>
         </div>
-      </div> */}
-      {/* <Get /> */}
+      </div>
+      <Get />
       <Post />
     </>
   );

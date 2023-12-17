@@ -1,5 +1,5 @@
 import styles from "./post.module.scss";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export function Post() {
   const [nameIsFocused, setNameIsFocused] = useState(false);
@@ -48,6 +48,19 @@ export function Post() {
     console.log("Form data submitted:", formData);
   };
 
+  const nameFocus = useRef(null);
+  const emailFocus = useRef(null);
+  const phoneFocus = useRef(null);
+  const handleSelectedName = () => {
+    nameFocus.current.focus();
+  };
+  const handleSelectedEmail = () => {
+    emailFocus.current.focus();
+  };
+  const handleSelectedPhone = () => {
+    phoneFocus.current.focus();
+  };
+
   return (
     <div className={styles[`form`]}>
       <h2 className={styles[`form__title`]}>Working with POST request</h2>
@@ -62,9 +75,11 @@ export function Post() {
             onChange={handleChange}
             onBlur={name ? null : handleNameBlur}
             onFocus={handleNameFocus}
+            ref={nameFocus}
             required
           />
           <label
+            onClick={handleSelectedName}
             className={`${styles["form__name-label"]} ${
               nameIsFocused ? styles["input-focused"] : ""
             }`}
@@ -82,9 +97,11 @@ export function Post() {
             onChange={handleChange}
             onBlur={email ? null : handleEmailBlur}
             onFocus={handleEmailFocus}
+            ref={emailFocus}
             required
           />
           <label
+            onClick={handleSelectedEmail}
             className={`${styles["form__email-label"]} ${
               emailIsFocused ? styles["input-focused"] : ""
             }`}
@@ -102,9 +119,11 @@ export function Post() {
             onChange={handleChange}
             onBlur={phone ? null : handlePhoneBlur}
             onFocus={handlePhoneFocus}
+            ref={phoneFocus}
             required
           />
           <label
+            onClick={handleSelectedPhone}
             className={`${styles["form__phone-label"]} ${
               phoneIsFocused ? styles["input-focused"] : ""
             }`}

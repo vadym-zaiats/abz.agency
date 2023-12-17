@@ -63,4 +63,8 @@
   padding: 7.8px 23.1px;
   font-size: 16px;
   margin: 32px 0px 75px 0px;
+  &:hover {
+    background-color: $hover-color;
+    cursor: pointer;
+  }
 }
