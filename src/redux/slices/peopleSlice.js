@@ -55,5 +55,21 @@ export const setMaxResult = createAsyncThunk(
     return data.users.length;
   }
 );
+
+// export const postCard = createAsyncThunk(
+//   "peoples/postCard",
+//   async ({data}, { dispatch, rejectWithValue }) => {
+//     try {
+//       await
+//     } catch (error) {
+//       console.log(error);
+//     }
+//     // const data = await fetch(
+//     //   `https://frontend-test-assignment-api.abz.agency/api/v1/users?count=100`
+//     // ).then((res) => res.json());
+//     // return data.users.length;
+//   }
+// );
+
 export default peopleSlice.reducer;
 export const {} = peopleSlice.actions;

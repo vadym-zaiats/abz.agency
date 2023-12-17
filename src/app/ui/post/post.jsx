@@ -1,7 +1,10 @@
 import styles from "./post.module.scss";
 import { useRef, useState } from "react";
+import { setToken } from "@/redux/slices/tokenSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 export function Post() {
+  const dispatch = useDispatch();
   const [nameIsFocused, setNameIsFocused] = useState(false);
   const [emailIsFocused, setEmailIsFocused] = useState(false);
   const [phoneIsFocused, setPhoneIsFocused] = useState(false);
@@ -224,7 +227,13 @@ export function Post() {
             {photo ? `${photo.name}` : "Upload your photo"}
           </p>
         </div>
-        <button className={styles[`form__button`]} type="submit">
+        <button
+          onClick={() => {
+            dispatch(setToken());
+          }}
+          className={styles[`form__button`]}
+          type="submit"
+        >
           Sign up
         </button>
       </form>
