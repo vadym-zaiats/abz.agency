@@ -1,7 +1,9 @@
 import styles from "./post.module.scss";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { setToken } from "@/redux/slices/tokenSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { postCard } from "@/redux/slices/peopleSlice";
+import { setPositions } from "@/redux/slices/positionsSlice";
 
 export function Post() {
   const dispatch = useDispatch();
@@ -63,6 +65,11 @@ export function Post() {
   const handleSelectedPhone = () => {
     phoneFocus.current.focus();
   };
+
+  useEffect(() => {
+    dispatch(postCard());
+    dispatch(setPositions());
+  }, [dispatch]);
 
   return (
     <div className={styles[`form`]}>

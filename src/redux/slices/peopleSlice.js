@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { setToken } from "./tokenSlice";
 
 const peopleSlice = createSlice({
   name: "peoples",
@@ -6,11 +7,6 @@ const peopleSlice = createSlice({
     peoples: [],
     maxRes: 0,
     isLoading: false,
-  },
-  reducers: {
-    // setPeoples: (state, action) => {
-    //   state.peoples = action.payload;
-    // },
   },
   extraReducers: (builder) => {
     builder.addCase(setPeoples.pending, (state) => {
@@ -56,20 +52,53 @@ export const setMaxResult = createAsyncThunk(
   }
 );
 
-// export const postCard = createAsyncThunk(
-//   "peoples/postCard",
-//   async ({data}, { dispatch, rejectWithValue }) => {
-//     try {
-//       await
-//     } catch (error) {
-//       console.log(error);
-//     }
-//     // const data = await fetch(
-//     //   `https://frontend-test-assignment-api.abz.agency/api/v1/users?count=100`
-//     // ).then((res) => res.json());
-//     // return data.users.length;
-//   }
-// );
+export const postCard = createAsyncThunk(
+  "peoples/postCard",
+  async (
+    { name, email, phone, position, position_id, photo },
+    { dispatch, rejectWithValue, getState }
+  ) => {
+    const state = getState();
+    const token = state.tokenSlice.token;
+    try {
+      const res = await dispatch(setToken());
+      console.log("setToken() result:", res);
+      try {
+        fetch("https://frontend-test-assignment-api.abz.agency/api/v1/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: token,
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            phone,
+            position,
+            position_id,
+            photo,
+          }),
+        })
+          .then((res) => {
+            if (res.ok) {
+              //     renderAdminPage();
+              //     return res.text();
+            } else {
+              //     renderWrongPage();
+              //     console.log("Невірний логін або пароль");
+            }
+          })
+          .then((data) => {
+            console.log("Server responce:", data);
+          });
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    } catch (error) {
+      return rejectWithValue(error.massage);
+    }
+  }
+);
 
 export default peopleSlice.reducer;
 export const {} = peopleSlice.actions;
