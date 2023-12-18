@@ -120,6 +120,8 @@
   padding: 4.5px 0px;
 }
 
+.post_form__name__KNIEa.post_data__invalid__E_ty3,
+.post_form__email__WU0Uq.post_data__invalid__E_ty3,
 .post_form__phone__6sk1W.post_data__invalid__E_ty3 {
   border: 2px solid #cb3d40;
 }
@@ -281,6 +283,8 @@
   transition: top 0.3s, font-size 0.3s;
 }
 
+.post_form__name-label__oxAV3.post_data__invalid__E_ty3,
+.post_form__email-label__Ztomx.post_data__invalid__E_ty3,
 .post_form__phone-label__adpgo.post_data__invalid__E_ty3 {
   color: #cb3d40;
 }

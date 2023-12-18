@@ -132,7 +132,11 @@ export function Post() {
     <div className={styles[`form`]}>
       <h2 className={styles[`form__title`]}>Working with POST request</h2>
       <form className={styles[`form__body`]} onSubmit={handleSubmit}>
-        <div className={`${styles["form__name"]}`}>
+        <div
+          className={`${styles["form__name"]} ${
+            validationErrors.name && styles["data__invalid"]
+          }`}
+        >
           <input
             className={styles[`form__name-input`]}
             type="text"
@@ -147,13 +151,17 @@ export function Post() {
           <label
             onClick={handleSelectedName}
             className={`${styles["form__name-label"]} ${
-              nameIsFocused ? styles["input-focused"] : ""
-            }`}
+              nameIsFocused && styles["input-focused"]
+            } ${validationErrors.name && styles["data__invalid"]}`}
           >
             Your name
           </label>
         </div>
-        <div className={styles[`form__email`]}>
+        <div
+          className={`${styles["form__email"]} ${
+            validationErrors.email && styles["data__invalid"]
+          }`}
+        >
           <input
             className={styles[`form__email-input`]}
             type="email"
@@ -168,12 +176,19 @@ export function Post() {
           <label
             onClick={handleSelectedEmail}
             className={`${styles["form__email-label"]} ${
-              emailIsFocused ? styles["input-focused"] : ""
-            }`}
+              emailIsFocused && styles["input-focused"]
+            } ${validationErrors.email && styles["data__invalid"]}`}
           >
             Email
           </label>
         </div>
+        {/* <div
+          className={`${styles["form__validation"]} ${
+            validationErrors.email && styles["data__invalid"]
+          }`}
+        >
+          {validationErrors.email && `${validationErrors.email}`}
+        </div> */}
         <div
           className={`${styles["form__phone"]} ${
             validationErrors.phone && styles["data__invalid"]
@@ -299,13 +314,10 @@ export function Post() {
             {photo ? `${photo.name}` : "Upload your photo"}
           </p>
         </div>
-        <div className={styles[`form__error`]}>
-          {validationErrors.name && <p>{validationErrors.name}</p>}
-          {validationErrors.email && <p>{validationErrors.email}</p>}
-          {validationErrors.phone && <p>{validationErrors.phone}</p>}
+        {/* <div className={styles[`form__error`]}>
           {validationErrors.position && <p>{validationErrors.position}</p>}
           {validationErrors.photo && <p>{validationErrors.photo}</p>}
-        </div>
+        </div> */}
         <button
           onClick={() => {
             dispatch(setToken());

@@ -64,6 +64,8 @@
   padding: 4.5px 0px;
 }
 
+.form__name.data__invalid,
+.form__email.data__invalid,
 .form__phone.data__invalid {
   border: 2px solid $error-color;
 }
@@ -223,6 +225,8 @@
   transition: top 0.3s, font-size 0.3s;
 }
 
+.form__name-label.data__invalid,
+.form__email-label.data__invalid,
 .form__phone-label.data__invalid {
   color: $error-color;
 }
