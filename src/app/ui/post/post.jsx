@@ -182,13 +182,13 @@ export function Post() {
             Email
           </label>
         </div>
-        {/* <div
+        <div
           className={`${styles["form__validation"]} ${
             validationErrors.email && styles["data__invalid"]
           }`}
         >
           {validationErrors.email && `${validationErrors.email}`}
-        </div> */}
+        </div>
         <div
           className={`${styles["form__phone"]} ${
             validationErrors.phone && styles["data__invalid"]
