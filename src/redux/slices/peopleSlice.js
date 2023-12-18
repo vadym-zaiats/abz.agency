@@ -1,30 +1,30 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { setToken } from "./tokenSlice";
 
-const peopleSlice = createSlice({
-  name: "peoples",
+const peoplelice = createSlice({
+  name: "people",
   initialState: {
-    peoples: [],
+    people: [],
     totalUsers: 0,
-    isLoading: false,
+    dataIsLoading: true,
   },
   extraReducers: (builder) => {
-    builder.addCase(setPeoples.pending, (state) => {
-      state.isLoading = true;
+    builder.addCase(setPeople.pending, (state) => {
+      state.dataIsLoading = true;
     });
-    builder.addCase(setPeoples.fulfilled, (state, action) => {
-      state.peoples = action.payload.users;
+    builder.addCase(setPeople.fulfilled, (state, action) => {
+      state.people = action.payload.users;
       state.totalUsers = action.payload.total_users;
-      state.isLoading = false;
+      state.dataIsLoading = false;
     });
-    builder.addCase(setPeoples.rejected, (state, action) => {
-      state.isLoading = false;
+    builder.addCase(setPeople.rejected, (state, action) => {
+      state.dataIsLoading = false;
       state.error = action.error;
     });
   },
 });
-export const setPeoples = createAsyncThunk(
-  "peoples/setPeoples",
+export const setPeople = createAsyncThunk(
+  "people/setpeople",
   async ({ page }, { dispatch, rejectWithValue }) => {
     const data = await fetch(
       `https://frontend-test-assignment-api.abz.agency/api/v1/users?page=${page}&count=6`
@@ -33,7 +33,7 @@ export const setPeoples = createAsyncThunk(
   }
 );
 export const postCard = createAsyncThunk(
-  "peoples/postCard",
+  "people/postCard",
   async (formData, { dispatch, rejectWithValue, getState }) => {
     // const state = getState();
     // const token = state.tokenSlice.token;
@@ -76,5 +76,5 @@ export const postCard = createAsyncThunk(
   }
 );
 
-export default peopleSlice.reducer;
-export const {} = peopleSlice.actions;
+export default peoplelice.reducer;
+export const {} = peoplelice.actions;

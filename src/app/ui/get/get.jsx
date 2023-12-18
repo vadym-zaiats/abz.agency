@@ -3,12 +3,14 @@
 import styles from "./get.module.scss";
 import { Card } from "../card/card";
 import { useDispatch, useSelector } from "react-redux";
-import { setPeoples, setTotalUsers } from "@/redux/slices/peopleSlice";
+import { setPeople } from "@/redux/slices/peopleSlice";
 import { useEffect, useState } from "react";
+import { Preloader } from "../preloader/preloader";
 
 export function Get() {
-  const data = useSelector((state) => state.peoples.peoples);
-  const totalUsers = useSelector((state) => state.peoples.totalUsers);
+  const data = useSelector((state) => state.people.people);
+  const dataIsLoading = useSelector((state) => state.people.dataIsLoading);
+  const totalUsers = useSelector((state) => state.people.totalUsers);
   const dispatch = useDispatch();
   const [count, setCount] = useState(6);
   const [page, setPage] = useState(1);
@@ -19,25 +21,27 @@ export function Get() {
   };
 
   useEffect(() => {
-    dispatch(setPeoples({ page }));
+    dispatch(setPeople({ page }));
   }, [dispatch, count, page]);
 
   return (
     <div className={styles[`get`]}>
       <h2 className={styles[`get__title`]}>Working with GET request</h2>
       <div className={styles[`get__cards`]}>
-        {data.map(({ id, name, phone, email, position, photo }) => {
-          return (
-            <Card
-              key={id}
-              name={name}
-              phone={phone}
-              email={email}
-              position={position}
-              photo={photo}
-            />
-          );
-        })}
+        {dataIsLoading && <Preloader />}
+        {!dataIsLoading &&
+          data.map(({ id, name, phone, email, position, photo }) => {
+            return (
+              <Card
+                key={id}
+                name={name}
+                phone={phone}
+                email={email}
+                position={position}
+                photo={photo}
+              />
+            );
+          })}
       </div>
       {count <= totalUsers && (
         <button

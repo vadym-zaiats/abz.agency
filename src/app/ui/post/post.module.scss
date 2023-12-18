@@ -278,4 +278,8 @@
 .form__button.enabled {
   background-color: $primary-color;
   color: #000;
+  &:hover {
+    cursor: pointer;
+    background-color: $hover-color;
+  }
 }

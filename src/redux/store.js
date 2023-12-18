@@ -6,7 +6,7 @@ import { thunk } from "redux-thunk";
 
 export const store = configureStore({
   reducer: {
-    peoples: peopleSlice,
+    people: peopleSlice,
     token: tokenSlice,
     positions: positionsSlice,
     middleware: [thunk],
