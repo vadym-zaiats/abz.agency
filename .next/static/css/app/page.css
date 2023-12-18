@@ -325,6 +325,9 @@
   line-height: 26px;
   color: #7e7e7e;
   width: 70%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 65%;
 }
 
 .post_form__name-label__oxAV3,

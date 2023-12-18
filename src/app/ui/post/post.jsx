@@ -10,8 +10,7 @@ export function Post() {
   const [nameIsFocused, setNameIsFocused] = useState(false);
   const [emailIsFocused, setEmailIsFocused] = useState(false);
   const [phoneIsFocused, setPhoneIsFocused] = useState(false);
-  const [isFormValid, setIsFormValid] = useState(false);
-  const positions = useSelector((state) => state.positions.positions);
+  // const positions = useSelector((state) => state.positions.positions);
 
   const nameFocus = useRef(null);
   const emailFocus = useRef(null);
@@ -52,7 +51,7 @@ export function Post() {
     photo: null,
   });
   const { name, email, phone, position, photo } = formData;
-  console.log(name, email, phone, position, photo?.name);
+  // console.log(name, email, phone, position, photo?.name);
 
   const [validationErrors, setValidationErrors] = useState({
     name: null,
@@ -96,7 +95,6 @@ export function Post() {
         errors.photo = "Photo size exceeds the maximum limit of 5 MB.";
       }
     }
-
     setValidationErrors(errors);
     return Object.keys(errors).length === 0;
   };
@@ -120,10 +118,19 @@ export function Post() {
       console.log("Form has validation errors");
     }
   };
-
+  const isFormFilled = () => {
+    const isFormValid =
+      name.length > 0 &&
+      email.length > 0 &&
+      phone.length > 0 &&
+      position.length > 0 &&
+      photo !== null;
+    return isFormValid;
+  };
   useEffect(() => {
-    dispatch(setPositions());
-  }, [dispatch]);
+    isFormFilled();
+    // dispatch(setPositions());
+  }, [dispatch, formData]);
 
   return (
     <div className={styles[`form`]}>
@@ -342,10 +349,10 @@ export function Post() {
             dispatch(setToken());
           }}
           className={`${styles["form__button"]} ${
-            isFormValid && styles["enabled"]
+            isFormFilled() && styles["enabled"]
           }`}
           type="submit"
-          disabled={!isFormValid}
+          disabled={!isFormFilled()}
         >
           Sign up
         </button>

@@ -229,6 +229,9 @@
   line-height: 26px;
   color: $placeholder-color;
   width: 70%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 65%;
 }
 
 .form__name-label,
