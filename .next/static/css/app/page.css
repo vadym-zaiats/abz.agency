@@ -57,7 +57,7 @@
 }
 
 .post_form__title__CJ_Uu {
-  margin-bottom: 50px;
+  margin-bottom: 0.5px;
   font-size: 40px;
   font-style: normal;
   font-weight: 400;
@@ -67,16 +67,17 @@
 
 .post_form__name__KNIEa,
 .post_form__email__WU0Uq {
+  margin-top: 50.5px;
   width: 100%;
   background-color: transparent;
   border-radius: 4px;
   border: 1px solid #d0cfcf;
-  margin-bottom: 50.5px;
   position: relative;
   padding: 4px 0;
 }
 
 .post_form__phone__6sk1W {
+  margin-top: 50px;
   width: 100%;
   background-color: transparent;
   border-radius: 4px;
