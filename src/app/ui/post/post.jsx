@@ -10,6 +10,7 @@ export function Post() {
   const [nameIsFocused, setNameIsFocused] = useState(false);
   const [emailIsFocused, setEmailIsFocused] = useState(false);
   const [phoneIsFocused, setPhoneIsFocused] = useState(false);
+  const [isFormValid, setIsFormValid] = useState(false);
   const positions = useSelector((state) => state.positions.positions);
 
   const nameFocus = useRef(null);
@@ -24,7 +25,6 @@ export function Post() {
   const handleSelectedPhone = () => {
     phoneFocus.current.focus();
   };
-
   const handleNameFocus = () => {
     setNameIsFocused(true);
   };
@@ -55,13 +55,12 @@ export function Post() {
   console.log(name, email, phone, position, photo?.name);
 
   const [validationErrors, setValidationErrors] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    position: "",
-    photo: "",
+    name: null,
+    email: null,
+    phone: null,
+    position: null,
+    photo: null,
   });
-
   const validateForm = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phoneRegex = /^\+38 \(\d{3}\) \d{3} - \d{2} - \d{2}$/;
@@ -101,7 +100,6 @@ export function Post() {
     setValidationErrors(errors);
     return Object.keys(errors).length === 0;
   };
-
   const handleChange = (e) => {
     const { name, value, type } = e.target;
     setFormData((prevData) => ({
@@ -114,7 +112,6 @@ export function Post() {
       [name]: "",
     });
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
@@ -211,7 +208,6 @@ export function Post() {
             onBlur={phone ? null : handlePhoneBlur}
             onFocus={handlePhoneFocus}
             ref={phoneFocus}
-            required
           />
           <label
             onClick={handleSelectedPhone}
@@ -345,8 +341,11 @@ export function Post() {
           onClick={() => {
             dispatch(setToken());
           }}
-          className={styles[`form__button`]}
+          className={`${styles["form__button"]} ${
+            isFormValid && styles["enabled"]
+          }`}
           type="submit"
+          disabled={!isFormValid}
         >
           Sign up
         </button>

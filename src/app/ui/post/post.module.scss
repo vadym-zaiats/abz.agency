@@ -271,3 +271,8 @@
   transform: translate(-50%, 0%);
   font-weight: 200;
 }
+
+.form__button.enabled {
+  background-color: $primary-color;
+  color: #000;
+}
