@@ -40,36 +40,32 @@ export const postCard = createAsyncThunk(
     try {
       const res = await dispatch(setToken());
       console.log(formData);
-      // try {
-      //   fetch("https://frontend-test-assignment-api.abz.agency/api/v1/users", {
+      // await fetch(
+      //   "https://frontend-test-assignment-api.abz.agency/api/v1/users",
+      //   {
       //     method: "POST",
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //       Authorization: token,
-      //     },
-      //     body: JSON.stringify({
-      //       name,
-      //       email,
-      //       phone,
-      //       position,
-      //       photo,
-      //     }),
+      //     headers: { Token: token },
+      //     body: formData,
+      //   }
+      // )
+      //   .then((res) => {
+      //     if (res.ok) {
+      //       return res.json();
+      //     } else {
+      //       console.error("Something went wrong");
+      //     }
       //   })
-      //     .then((res) => {
-      //       if (res.ok) {
-      //         //     renderAdminPage();
-      //         //     return res.text();
-      //       } else {
-      //         //     renderWrongPage();
-      //         //     console.log("Невірний логін або пароль");
-      //       }
-      //     })
-      //     .then((data) => {
-      //       console.log("Server responce:", data);
-      //     });
-      // } catch (error) {
-      //   console.error("Error:", error);
-      // }
+      //   .then((data) => {
+      //     console.log(data);
+      //     if (data.success) {
+      //       console.log(data);
+      //     } else {
+      //       console.log("proccess server errors");
+      //     }
+      //   })
+      //   .catch((error) => {
+      //     console.error(error);
+      //   });
     } catch (error) {
       return rejectWithValue(error.massage);
     }
