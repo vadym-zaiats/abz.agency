@@ -65,9 +65,7 @@ export function Post() {
   const validateForm = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phoneRegex = /^\+38 \(\d{3}\) \d{3} - \d{2} - \d{2}$/;
-
     let errors = {};
-
     if (name.length < 2 || name.length > 60) {
       errors.name = "Name must be between 2 and 60 characters";
     }
@@ -84,9 +82,11 @@ export function Post() {
       errors.position = "Please select a position";
     }
 
-    if (photo) {
+    if (!photo) {
+      errors.photo = "Photo is required";
+    } else {
       const allowedFormats = ["jpg", "jpeg"];
-      const maxFileSize = 5 * 1024 * 1024; // 5 MB
+      const maxFileSize = 5 * 1024 * 1024;
 
       const fileExtension = photo.name.split(".").pop().toLowerCase();
       if (!allowedFormats.includes(fileExtension)) {
@@ -156,6 +156,13 @@ export function Post() {
           >
             Your name
           </label>
+        </div>
+        <div
+          className={`${styles["form__validation"]} ${
+            validationErrors.phone && styles["data__invalid"]
+          }`}
+        >
+          {validationErrors.phone && `${validationErrors.name}`}
         </div>
         <div
           className={`${styles["form__email"]} ${
@@ -294,8 +301,19 @@ export function Post() {
               QA
             </label>
           </div>
+          <div
+            className={`${styles["form__validation"]} ${
+              validationErrors.position && styles["data__invalid"]
+            }`}
+          >
+            {validationErrors.position && `${validationErrors.position}`}
+          </div>
         </div>
-        <div className={styles[`form__upload`]}>
+        <div
+          className={`${styles["form__upload"]} ${
+            validationErrors.photo && styles["data__invalid"]
+          }`}
+        >
           <input
             className={styles[`form__upload-input`]}
             id="form__upload-input"
@@ -305,7 +323,9 @@ export function Post() {
             accept="image/*"
           />
           <label
-            className={styles[`form__upload-label`]}
+            className={`${styles["form__upload-label"]} ${
+              validationErrors.photo && styles["data__invalid"]
+            }`}
             htmlFor="form__upload-input"
           >
             Upload
@@ -314,10 +334,13 @@ export function Post() {
             {photo ? `${photo.name}` : "Upload your photo"}
           </p>
         </div>
-        {/* <div className={styles[`form__error`]}>
-          {validationErrors.position && <p>{validationErrors.position}</p>}
-          {validationErrors.photo && <p>{validationErrors.photo}</p>}
-        </div> */}
+        <div
+          className={`${styles["form__validation"]} ${
+            validationErrors.photo && styles["data__invalid"]
+          }`}
+        >
+          {validationErrors.photo && `${validationErrors.photo}`}
+        </div>
         <button
           onClick={() => {
             dispatch(setToken());

@@ -164,7 +164,8 @@
   margin-top: 49px;
 }
 
-.post_form__phone__6sk1W.post_data__invalid__E_ty3 {
+.post_form__phone__6sk1W.post_data__invalid__E_ty3,
+.post_form__photo__poalk.post_data__invalid__E_ty3 {
   border: 2px solid #cb3d40;
   margin-top: 48px;
 }
@@ -276,6 +277,10 @@
   position: relative;
 }
 
+.post_form__upload__5uOkT.post_data__invalid__E_ty3 {
+  border: 2px solid #cb3d40;
+}
+
 .post_form__upload-input__NMgs1 {
   width: 0px;
   height: 0px;
@@ -300,6 +305,13 @@
 }
 .post_form__upload-label__lBQdZ:hover {
   cursor: pointer;
+}
+
+.post_form__upload-label__lBQdZ.post_data__invalid__E_ty3 {
+  border: 2px solid #cb3d40;
+  left: -2px;
+  top: -2px;
+  padding: 25px 14.5px;
 }
 
 .post_form__upload-file-name__eOu2_ {
