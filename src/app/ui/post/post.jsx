@@ -1,8 +1,7 @@
 import styles from "./post.module.scss";
 import { useEffect, useRef, useState } from "react";
-import { setToken } from "@/redux/slices/tokenSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { setPositions } from "@/redux/slices/positionsSlice";
+// import { setPositions } from "@/redux/slices/positionsSlice";
 import { postCard } from "@/redux/slices/peopleSlice";
 
 export function Post() {
@@ -110,14 +109,6 @@ export function Post() {
       [name]: "",
     });
   };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validateForm()) {
-      console.log("Form data submitted:", formData);
-    } else {
-      console.log("Form has validation errors");
-    }
-  };
   const isFormFilled = () => {
     const isFormValid =
       name.length > 0 &&
@@ -127,9 +118,16 @@ export function Post() {
       photo !== null;
     return isFormValid;
   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (validateForm()) {
+      dispatch(postCard(formData));
+    } else {
+      console.log("Form has validation errors");
+    }
+  };
   useEffect(() => {
     isFormFilled();
-    // dispatch(setPositions());
   }, [dispatch, formData]);
 
   return (
@@ -163,10 +161,10 @@ export function Post() {
         </div>
         <div
           className={`${styles["form__validation"]} ${
-            validationErrors.phone && styles["data__invalid"]
+            validationErrors.name && styles["data__invalid"]
           }`}
         >
-          {validationErrors.phone && `${validationErrors.name}`}
+          {validationErrors.name && `${validationErrors.name}`}
         </div>
         <div
           className={`${styles["form__email"]} ${
@@ -345,9 +343,6 @@ export function Post() {
           {validationErrors.photo && `${validationErrors.photo}`}
         </div>
         <button
-          onClick={() => {
-            dispatch(setToken());
-          }}
           className={`${styles["form__button"]} ${
             isFormFilled() && styles["enabled"]
           }`}

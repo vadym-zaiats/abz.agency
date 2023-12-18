@@ -34,15 +34,12 @@ export const setPeoples = createAsyncThunk(
 );
 export const postCard = createAsyncThunk(
   "peoples/postCard",
-  async (
-    { name, email, phone, position, photo },
-    { dispatch, rejectWithValue, getState }
-  ) => {
-    const state = getState();
-    const token = state.tokenSlice.token;
+  async (formData, { dispatch, rejectWithValue, getState }) => {
+    // const state = getState();
+    // const token = state.tokenSlice.token;
     try {
       const res = await dispatch(setToken());
-      console.log("setToken() result:", res);
+      console.log(formData);
       // try {
       //   fetch("https://frontend-test-assignment-api.abz.agency/api/v1/users", {
       //     method: "POST",
