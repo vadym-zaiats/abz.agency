@@ -2,8 +2,8 @@ import styles from "./post.module.scss";
 import { useEffect, useRef, useState } from "react";
 import { setToken } from "@/redux/slices/tokenSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { postCard } from "@/redux/slices/peopleSlice";
 import { setPositions } from "@/redux/slices/positionsSlice";
+import { postCard } from "@/redux/slices/peopleSlice";
 
 export function Post() {
   const dispatch = useDispatch();
@@ -11,6 +11,19 @@ export function Post() {
   const [emailIsFocused, setEmailIsFocused] = useState(false);
   const [phoneIsFocused, setPhoneIsFocused] = useState(false);
   const positions = useSelector((state) => state.positions.positions);
+
+  const nameFocus = useRef(null);
+  const emailFocus = useRef(null);
+  const phoneFocus = useRef(null);
+  const handleSelectedName = () => {
+    nameFocus.current.focus();
+  };
+  const handleSelectedEmail = () => {
+    emailFocus.current.focus();
+  };
+  const handleSelectedPhone = () => {
+    phoneFocus.current.focus();
+  };
 
   const handleNameFocus = () => {
     setNameIsFocused(true);
@@ -41,34 +54,77 @@ export function Post() {
   const { name, email, phone, position, photo } = formData;
   console.log(name, email, phone, position, photo?.name);
 
+  const [validationErrors, setValidationErrors] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    position: "",
+    photo: "",
+  });
+
+  const validateForm = () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^\+38 \(\d{3}\) \d{3} - \d{2} - \d{2}$/;
+
+    let errors = {};
+
+    if (name.length < 2 || name.length > 60) {
+      errors.name = "Name must be between 2 and 60 characters";
+    }
+
+    if (!emailRegex.test(email)) {
+      errors.email = "Invalid email format";
+    }
+
+    if (!phoneRegex.test(phone)) {
+      errors.phone = "Invalid Ukrainian phone format";
+    }
+
+    if (!position) {
+      errors.position = "Please select a position";
+    }
+
+    if (photo) {
+      const allowedFormats = ["jpg", "jpeg"];
+      const maxFileSize = 5 * 1024 * 1024; // 5 MB
+
+      const fileExtension = photo.name.split(".").pop().toLowerCase();
+      if (!allowedFormats.includes(fileExtension)) {
+        errors.photo = "Invalid photo format. Please use jpg/jpeg.";
+      }
+
+      if (photo.size > maxFileSize) {
+        errors.photo = "Photo size exceeds the maximum limit of 5 MB.";
+      }
+    }
+
+    setValidationErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
   const handleChange = (e) => {
     const { name, value, type } = e.target;
     setFormData((prevData) => ({
       ...prevData,
       [name]: type === "file" ? e.target.files[0] : value,
     }));
+
+    setValidationErrors({
+      ...validationErrors,
+      [name]: "",
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form data submitted:", formData);
-  };
-
-  const nameFocus = useRef(null);
-  const emailFocus = useRef(null);
-  const phoneFocus = useRef(null);
-  const handleSelectedName = () => {
-    nameFocus.current.focus();
-  };
-  const handleSelectedEmail = () => {
-    emailFocus.current.focus();
-  };
-  const handleSelectedPhone = () => {
-    phoneFocus.current.focus();
+    if (validateForm()) {
+      console.log("Form data submitted:", formData);
+    } else {
+      console.log("Form has validation errors");
+    }
   };
 
   useEffect(() => {
-    dispatch(postCard());
     dispatch(setPositions());
   }, [dispatch]);
 
@@ -87,7 +143,6 @@ export function Post() {
             onBlur={name ? null : handleNameBlur}
             onFocus={handleNameFocus}
             ref={nameFocus}
-            required
           />
           <label
             onClick={handleSelectedName}
@@ -109,7 +164,6 @@ export function Post() {
             onBlur={email ? null : handleEmailBlur}
             onFocus={handleEmailFocus}
             ref={emailFocus}
-            required
           />
           <label
             onClick={handleSelectedEmail}
@@ -120,7 +174,11 @@ export function Post() {
             Email
           </label>
         </div>
-        <div className={styles[`form__phone`]}>
+        <div
+          className={`${styles["form__phone"]} ${
+            validationErrors.phone && styles["data__invalid"]
+          }`}
+        >
           <input
             className={styles[`form__phone-input`]}
             type="tel"
@@ -136,14 +194,20 @@ export function Post() {
           <label
             onClick={handleSelectedPhone}
             className={`${styles["form__phone-label"]} ${
-              phoneIsFocused ? styles["input-focused"] : ""
-            }`}
+              phoneIsFocused && styles["input-focused"]
+            } ${validationErrors.phone && styles["data__invalid"]}`}
           >
             Phone
           </label>
         </div>
-        <div className={styles[`form__phone-valid`]}>
-          +38 (XXX) XXX - XX - XX
+        <div
+          className={`${styles["form__validation"]} ${
+            validationErrors.phone && styles["data__invalid"]
+          }`}
+        >
+          {validationErrors.phone
+            ? `${validationErrors.phone}`
+            : "+38 (XXX) XXX - XX - XX"}
         </div>
         <div className={styles[`form__position`]}>
           <p className={styles[`form__position-title`]}>Select your position</p>
@@ -234,6 +298,13 @@ export function Post() {
           <p className={styles[`form__upload-file-name`]}>
             {photo ? `${photo.name}` : "Upload your photo"}
           </p>
+        </div>
+        <div className={styles[`form__error`]}>
+          {validationErrors.name && <p>{validationErrors.name}</p>}
+          {validationErrors.email && <p>{validationErrors.email}</p>}
+          {validationErrors.phone && <p>{validationErrors.phone}</p>}
+          {validationErrors.position && <p>{validationErrors.position}</p>}
+          {validationErrors.photo && <p>{validationErrors.photo}</p>}
         </div>
         <button
           onClick={() => {

@@ -120,13 +120,21 @@
   padding: 4.5px 0px;
 }
 
-.post_form__phone-valid__6Fi__ {
+.post_form__phone__6sk1W.post_data__invalid__E_ty3 {
+  border: 2px solid #cb3d40;
+}
+
+.post_form__validation__v7D0C {
   margin: 5px 0px 0px 15px;
   color: #7e7e7e;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: 14px;
+}
+
+.post_form__validation__v7D0C.post_data__invalid__E_ty3 {
+  color: #cb3d40;
 }
 
 .post_form__position__eZxWP {
@@ -271,6 +279,10 @@
   left: 15px;
   transform: translate(0%, -50%);
   transition: top 0.3s, font-size 0.3s;
+}
+
+.post_form__phone-label__adpgo.post_data__invalid__E_ty3 {
+  color: #cb3d40;
 }
 
 .post_form__name-label__oxAV3.post_input-focused__aEZt5,

@@ -64,13 +64,21 @@
   padding: 4.5px 0px;
 }
 
-.form__phone-valid {
+.form__phone.data__invalid {
+  border: 2px solid $error-color;
+}
+
+.form__validation {
   margin: 5px 0px 0px 15px;
   color: $placeholder-color;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: 14px;
+}
+
+.form__validation.data__invalid {
+  color: $error-color;
 }
 
 .form__position {
@@ -213,6 +221,10 @@
   left: 15px;
   transform: translate(0%, -50%);
   transition: top 0.3s, font-size 0.3s;
+}
+
+.form__phone-label.data__invalid {
+  color: $error-color;
 }
 
 .form__name-label.input-focused,
