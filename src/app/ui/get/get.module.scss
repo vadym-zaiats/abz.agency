@@ -3,8 +3,11 @@
 .get {
   margin: 140px auto 0;
   max-width: 328px;
-
   text-align: center;
+}
+
+.get__cards {
+  position: relative;
 }
 
 .get__title {

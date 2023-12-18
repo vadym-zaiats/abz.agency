@@ -1,7 +1,6 @@
 import styles from "./post.module.scss";
 import { useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-// import { setPositions } from "@/redux/slices/positionsSlice";
+import { useDispatch } from "react-redux";
 import { postCard } from "@/redux/slices/peopleSlice";
 
 export function Post() {
@@ -9,7 +8,6 @@ export function Post() {
   const [nameIsFocused, setNameIsFocused] = useState(false);
   const [emailIsFocused, setEmailIsFocused] = useState(false);
   const [phoneIsFocused, setPhoneIsFocused] = useState(false);
-  // const positions = useSelector((state) => state.positions.positions);
 
   const nameFocus = useRef(null);
   const emailFocus = useRef(null);
@@ -50,7 +48,6 @@ export function Post() {
     photo: null,
   });
   const { name, email, phone, position, photo } = formData;
-  // console.log(name, email, phone, position, photo?.name);
 
   const [validationErrors, setValidationErrors] = useState({
     name: null,

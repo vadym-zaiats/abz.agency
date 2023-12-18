@@ -29,19 +29,18 @@ export function Get() {
       <h2 className={styles[`get__title`]}>Working with GET request</h2>
       <div className={styles[`get__cards`]}>
         {dataIsLoading && <Preloader />}
-        {!dataIsLoading &&
-          data.map(({ id, name, phone, email, position, photo }) => {
-            return (
-              <Card
-                key={id}
-                name={name}
-                phone={phone}
-                email={email}
-                position={position}
-                photo={photo}
-              />
-            );
-          })}
+        {data.map(({ id, name, phone, email, position, photo }) => {
+          return (
+            <Card
+              key={id}
+              name={name}
+              phone={phone}
+              email={email}
+              position={position}
+              photo={photo}
+            />
+          );
+        })}
       </div>
       {count <= totalUsers && (
         <button
