@@ -122,9 +122,14 @@
 }
 
 .post_form__name__KNIEa.post_data__invalid__E_ty3,
-.post_form__email__WU0Uq.post_data__invalid__E_ty3,
+.post_form__email__WU0Uq.post_data__invalid__E_ty3 {
+  border: 2px solid #cb3d40;
+  margin-top: 49px;
+}
+
 .post_form__phone__6sk1W.post_data__invalid__E_ty3 {
   border: 2px solid #cb3d40;
+  margin-top: 48px;
 }
 
 .post_form__validation__v7D0C {

@@ -66,9 +66,13 @@
 }
 
 .form__name.data__invalid,
-.form__email.data__invalid,
+.form__email.data__invalid {
+  border: 2px solid $error-color;
+  margin-top: 49px;
+}
 .form__phone.data__invalid {
   border: 2px solid $error-color;
+  margin-top: 48px;
 }
 
 .form__validation {
