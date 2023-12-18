@@ -10,6 +10,7 @@ export function Post() {
   const [nameIsFocused, setNameIsFocused] = useState(false);
   const [emailIsFocused, setEmailIsFocused] = useState(false);
   const [phoneIsFocused, setPhoneIsFocused] = useState(false);
+  const positions = useSelector((state) => state.positions.positions);
 
   const handleNameFocus = () => {
     setNameIsFocused(true);
@@ -34,11 +35,11 @@ export function Post() {
     name: "",
     email: "",
     phone: "",
-    role: "",
+    position: "",
     photo: null,
   });
-  const { name, email, phone, role, photo } = formData;
-  console.log(name, email, phone, role, photo?.name);
+  const { name, email, phone, position, photo } = formData;
+  console.log(name, email, phone, position, photo?.name);
 
   const handleChange = (e) => {
     const { name, value, type } = e.target;
@@ -151,10 +152,10 @@ export function Post() {
               className={styles[`form__frontend-input`]}
               id="form__frontend-input"
               type="radio"
-              name="role"
+              name="position"
               value="frontend"
               onChange={handleChange}
-              checked={formData.role === "frontend"}
+              checked={formData.position === "frontend"}
             />
             <label
               className={styles[`form__frontend-label`]}
@@ -168,10 +169,10 @@ export function Post() {
               className={styles[`form__backend-input`]}
               id="form__backend-input"
               type="radio"
-              name="role"
+              name="position"
               value="backend"
               onChange={handleChange}
-              checked={formData.role === "backend"}
+              checked={formData.position === "backend"}
             />
             <label
               className={styles[`form__backend-label`]}
@@ -185,10 +186,10 @@ export function Post() {
               className={styles[`form__designer-input`]}
               id="form__designer-input"
               type="radio"
-              name="role"
+              name="position"
               value="designer"
               onChange={handleChange}
-              checked={formData.role === "designer"}
+              checked={formData.position === "designer"}
             />
             <label
               className={styles[`form__designer-label`]}
@@ -202,10 +203,10 @@ export function Post() {
               className={styles[`form__qa-input`]}
               id="form__qa-input"
               type="radio"
-              name="role"
+              name="position"
               value="qa"
               onChange={handleChange}
-              checked={formData.role === "qa"}
+              checked={formData.position === "qa"}
             />
             <label
               className={styles[`form__qa-label`]}
