@@ -12,8 +12,6 @@ export function Post() {
   const [phoneIsFocused, setPhoneIsFocused] = useState(false);
   const positions = useSelector((state) => state.positions.positions);
   const isLoading = useSelector((state) => state.positions.isLoading);
-  console.log(positions);
-  console.log(isLoading);
   const nameFocus = useRef(null);
   const emailFocus = useRef(null);
   const phoneFocus = useRef(null);
@@ -134,7 +132,7 @@ export function Post() {
   useEffect(() => {
     isFormFilled();
     dispatch(setPositions());
-  }, [dispatch, formData]);
+  }, []);
 
   return (
     <div className={styles[`form`]}>
@@ -238,13 +236,15 @@ export function Post() {
             ? `${validationErrors.phone}`
             : "+38 (XXX) XXX - XX - XX"}
         </div>
-        <div className={styles[`form__position`]}>
-          <p className={styles[`form__position-title`]}>Select your position</p>
+        <div className={styles[`form__positions`]}>
+          <p className={styles[`form__positions-title`]}>
+            Select your position
+          </p>
           <div className={styles[`form__positions-wrapper`]}>
             {isLoading && <Preloader />}
             {positions.map(({ id, name }) => {
               return (
-                <div className={styles[`form__position-type`]}>
+                <div key={id} className={styles[`form__position-type`]}>
                   <input
                     className={styles[`form__position-input`]}
                     id={id}
