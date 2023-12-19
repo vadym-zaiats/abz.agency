@@ -15,14 +15,13 @@
 .card__photo {
   border-radius: 100%;
   margin-bottom: 20px;
-  line-height: 26px;
 }
 
 .card__name {
   margin: 0 auto 20px;
   overflow: hidden;
   text-overflow: ellipsis;
-  line-height: 26px;
+  line-height: 25.5px;
   &:hover::after {
     cursor: pointer;
     content: attr(data-fullname);
@@ -40,14 +39,14 @@
 }
 
 .card__position {
-  line-height: 26px;
+  line-height: 25.5px;
 }
 
 .card__email {
   margin: 0 auto;
   overflow: hidden;
   text-overflow: ellipsis;
-  line-height: 26px;
+  line-height: 25.5px;
   &:hover::after {
     cursor: pointer;
     content: attr(data-fullemail);
@@ -65,5 +64,5 @@
 }
 
 .card__phone {
-  line-height: 26px;
+  line-height: 25.5px;
 }

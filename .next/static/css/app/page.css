@@ -19,14 +19,13 @@
 .card_card__photo__RnCTg {
   border-radius: 100%;
   margin-bottom: 20px;
-  line-height: 26px;
 }
 
 .card_card__name__SJs4s {
   margin: 0 auto 20px;
   overflow: hidden;
   text-overflow: ellipsis;
-  line-height: 26px;
+  line-height: 25.5px;
 }
 .card_card__name__SJs4s:hover::after {
   cursor: pointer;
@@ -44,14 +43,14 @@
 }
 
 .card_card__position__Vt5X1 {
-  line-height: 26px;
+  line-height: 25.5px;
 }
 
 .card_card__email__lH_Un {
   margin: 0 auto;
   overflow: hidden;
   text-overflow: ellipsis;
-  line-height: 26px;
+  line-height: 25.5px;
 }
 .card_card__email__lH_Un:hover::after {
   cursor: pointer;
@@ -69,7 +68,7 @@
 }
 
 .card_card__phone__UHmS4 {
-  line-height: 26px;
+  line-height: 25.5px;
 }
 /*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[12].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[12].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[12].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[12].oneOf[9].use[5]!./src/app/ui/preloader/preloader.module.scss ***!
@@ -156,18 +155,28 @@
   border-radius: 25px;
   background-color: #f4e041;
   font-size: 16px;
-  padding: 7.8px 23.1px;
+  padding: 7.8px 20px;
   margin-top: 30px;
 }
 .get_get__show-more__Aw7Xm:hover {
   background-color: #ffe302;
   cursor: pointer;
 }
+@media (min-width: 1168px) {
+  .get_get__show-more__Aw7Xm {
+    margin-top: 45px;
+  }
+}
 /*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[12].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[12].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[12].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[12].oneOf[9].use[5]!./src/app/ui/post/post.module.scss ***!
   \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 .post_form__lQ7t6 {
   margin: 140px 16px 0;
+}
+@media (min-width: 768px) {
+  .post_form__lQ7t6 {
+    margin-top: 142px;
+  }
 }
 
 .post_form__title__CJ_Uu {
@@ -180,12 +189,22 @@
 }
 
 .post_form__body__b6RfC {
-  max-width: 380px;
+  max-width: 328px;
   margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .post_form__body__b6RfC {
+    max-width: 380px;
+  }
 }
 
 .post_form__positions-wrapper__OEKp7 {
   position: relative;
+}
+@media (min-width: 768px) {
+  .post_form__positions-wrapper__OEKp7 {
+    max-width: 380px;
+  }
 }
 
 .post_form__name__KNIEa,
@@ -264,6 +283,23 @@
   font-weight: 400;
   line-height: 14px;
 }
+@media (min-width: 768px) {
+  .post_form__validation__v7D0C {
+    margin: 0px 0px 0px 16px;
+  }
+}
+@media (min-width: 1024px) {
+  .post_form__validation__v7D0C {
+    font-size: 10px;
+    margin: 2px 0px 0px 16px;
+  }
+}
+@media (min-width: 1168px) {
+  .post_form__validation__v7D0C {
+    font-size: 12px;
+    margin: 5px 0px 0px 15px;
+  }
+}
 
 .post_form__validation__v7D0C.post_data__invalid__E_ty3 {
   color: #cb3d40;
@@ -276,6 +312,21 @@
 }
 .post_form__positions__7Foag div:not(:last-child) {
   margin-bottom: 7px;
+}
+@media (min-width: 768px) {
+  .post_form__positions__7Foag {
+    margin-top: 34px;
+  }
+}
+@media (min-width: 1024px) {
+  .post_form__positions__7Foag {
+    margin-top: 29px;
+  }
+}
+@media (min-width: 1024px) {
+  .post_form__positions__7Foag {
+    margin-top: 29px;
+  }
 }
 
 .post_form__positions-title__YJ6am {
@@ -337,12 +388,31 @@
 }
 
 .post_form__upload__5uOkT {
-  margin-top: 47px;
+  margin-top: 36px;
   border-radius: 4px;
   border: 1px solid #d0cfcf;
-  width: 328px;
   height: 54px;
   position: relative;
+}
+@media (min-width: 768px) {
+  .post_form__upload__5uOkT {
+    margin-top: 40px;
+  }
+}
+@media (min-width: 768px) {
+  .post_form__upload__5uOkT {
+    margin-top: 36px;
+  }
+}
+@media (min-width: 1024px) {
+  .post_form__upload__5uOkT {
+    margin-top: 37px;
+  }
+}
+@media (min-width: 1168px) {
+  .post_form__upload__5uOkT {
+    margin-top: 36px;
+  }
 }
 
 .post_form__upload__5uOkT.post_data__invalid__E_ty3 {
@@ -397,6 +467,11 @@
   text-overflow: ellipsis;
   max-width: 65%;
 }
+@media (min-width: 768px) {
+  .post_form__upload-file-name__eOu2_ {
+    left: 26%;
+  }
+}
 
 .post_form__name-label__oxAV3,
 .post_form__email-label__Ztomx,
@@ -432,11 +507,22 @@
   font-size: 16px;
   color: rgba(255, 255, 255, 0.87);
   padding: 9px 23px;
-  margin: 49px 0 100px;
+  margin: 44px 0 100px;
   position: relative;
   left: 50%;
   transform: translate(-50%, 0%);
   font-weight: 200;
+}
+@media (min-width: 1024px) {
+  .post_form__button__8gG3R {
+    margin-top: 48px;
+    padding: 8px 23px;
+  }
+}
+@media (min-width: 1168px) {
+  .post_form__button__8gG3R {
+    margin-top: 45px;
+  }
 }
 
 .post_form__button__8gG3R.post_enabled__j2mqo {
