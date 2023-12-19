@@ -7,7 +7,7 @@ import Image from "next/image";
 export function Header() {
   return (
     <>
-      <header className={`${styles["header"]} ${styles["header--find"]}`}>
+      <header className={`${styles["header"]}`}>
         <div className={`${styles["header__logo"]}`}>
           <Image
             className={`${styles["header__logo--img"]}`}
