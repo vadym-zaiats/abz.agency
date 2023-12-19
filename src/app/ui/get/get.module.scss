@@ -2,12 +2,7 @@
 
 .get {
   margin: 140px auto 0;
-  max-width: 328px;
   text-align: center;
-}
-
-.get__cards {
-  position: relative;
 }
 
 .get__title {
@@ -17,6 +12,27 @@
   font-weight: 400;
   line-height: 40px;
   margin-bottom: 50px;
+  padding: 0 25px;
+}
+
+.get__cards {
+  position: relative;
+  margin: 0 16px;
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 32px;
+    gap: 16px;
+  }
+  @media (min-width: 1024px) {
+    max-width: 1168px;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0 60px;
+    gap: 29px;
+  }
+  @media (min-width: 1168px) {
+    margin: 0 auto;
+  }
 }
 
 .get__show-more {
@@ -25,7 +41,7 @@
   background-color: $primary-color;
   font-size: 16px;
   padding: 7.8px 23.1px;
-  margin-top: 50px;
+  margin-top: 30px;
   &:hover {
     background-color: $hover-color;
     cursor: pointer;

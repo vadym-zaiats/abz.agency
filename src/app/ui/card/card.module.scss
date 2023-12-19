@@ -6,19 +6,23 @@
   border-radius: 10px;
   padding: 20px;
   position: relative;
-  &:not(:last-child) {
-    margin-bottom: 20px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  @media (min-width: 768px) {
+    margin-bottom: 0px;
   }
 }
 .card__photo {
   border-radius: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  line-height: 26px;
 }
 
 .card__name {
-  margin-bottom: 0 auto 10px;
+  margin: 0 auto 20px;
   overflow: hidden;
   text-overflow: ellipsis;
+  line-height: 26px;
   &:hover::after {
     cursor: pointer;
     content: attr(data-fullname);
@@ -35,10 +39,15 @@
   }
 }
 
+.card__position {
+  line-height: 26px;
+}
+
 .card__email {
   margin: 0 auto;
   overflow: hidden;
   text-overflow: ellipsis;
+  line-height: 26px;
   &:hover::after {
     cursor: pointer;
     content: attr(data-fullemail);
@@ -53,4 +62,8 @@
     padding: 3px 16px;
     max-width: 90%;
   }
+}
+
+.card__phone {
+  line-height: 26px;
 }
