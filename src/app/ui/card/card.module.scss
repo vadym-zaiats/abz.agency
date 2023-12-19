@@ -22,8 +22,10 @@
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 25.5px;
-  &:hover::after {
+  &:hover {
     cursor: pointer;
+  }
+  &:hover::after {
     content: attr(data-fullname);
     position: absolute;
     bottom: 2%;
@@ -47,6 +49,9 @@
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 25.5px;
+  &:hover {
+    cursor: pointer;
+  }
   &:hover::after {
     cursor: pointer;
     content: attr(data-fullemail);
