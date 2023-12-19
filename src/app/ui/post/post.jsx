@@ -1,17 +1,23 @@
 import styles from "./post.module.scss";
 import { useEffect, useRef, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { postCard } from "@/redux/slices/peopleSlice";
+import { setPositions } from "@/redux/slices/positionsSlice";
+import { Preloader } from "../preloader/preloader";
 
 export function Post() {
   const dispatch = useDispatch();
   const [nameIsFocused, setNameIsFocused] = useState(false);
   const [emailIsFocused, setEmailIsFocused] = useState(false);
   const [phoneIsFocused, setPhoneIsFocused] = useState(false);
-
+  const positions = useSelector((state) => state.positions.positions);
+  const isLoading = useSelector((state) => state.positions.isLoading);
+  console.log(positions);
+  console.log(isLoading);
   const nameFocus = useRef(null);
   const emailFocus = useRef(null);
   const phoneFocus = useRef(null);
+
   const handleSelectedName = () => {
     nameFocus.current.focus();
   };
@@ -44,21 +50,22 @@ export function Post() {
     name: "",
     email: "",
     phone: "",
-    position: "",
+    position_id: "",
     photo: null,
   });
-  const { name, email, phone, position, photo } = formData;
+  const { name, email, phone, position_id, photo } = formData;
 
   const [validationErrors, setValidationErrors] = useState({
     name: null,
     email: null,
     phone: null,
-    position: null,
+    position_id: null,
     photo: null,
   });
   const validateForm = () => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const phoneRegex = /^\+38 \(\d{3}\) \d{3} - \d{2} - \d{2}$/;
+    const emailRegex =
+      /^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/;
+    const phoneRegex = /^[\+]{0,1}380([0-9]{9})$/;
     let errors = {};
     if (name.length < 2 || name.length > 60) {
       errors.name = "Name must be between 2 and 60 characters";
@@ -72,8 +79,8 @@ export function Post() {
       errors.phone = "Invalid Ukrainian phone format";
     }
 
-    if (!position) {
-      errors.position = "Please select a position";
+    if (!position_id) {
+      errors.position_id = "Please select a position";
     }
 
     if (!photo) {
@@ -96,6 +103,7 @@ export function Post() {
   };
   const handleChange = (e) => {
     const { name, value, type } = e.target;
+
     setFormData((prevData) => ({
       ...prevData,
       [name]: type === "file" ? e.target.files[0] : value,
@@ -111,7 +119,7 @@ export function Post() {
       name.length > 0 &&
       email.length > 0 &&
       phone.length > 0 &&
-      position.length > 0 &&
+      position_id.length > 0 &&
       photo !== null;
     return isFormValid;
   };
@@ -125,6 +133,7 @@ export function Post() {
   };
   useEffect(() => {
     isFormFilled();
+    dispatch(setPositions());
   }, [dispatch, formData]);
 
   return (
@@ -231,80 +240,36 @@ export function Post() {
         </div>
         <div className={styles[`form__position`]}>
           <p className={styles[`form__position-title`]}>Select your position</p>
-          <div className={styles[`form__frontend`]}>
-            <input
-              className={styles[`form__frontend-input`]}
-              id="form__frontend-input"
-              type="radio"
-              name="position"
-              value="frontend"
-              onChange={handleChange}
-              checked={formData.position === "frontend"}
-            />
-            <label
-              className={styles[`form__frontend-label`]}
-              htmlFor="form__frontend-input"
-            >
-              Frontend developer
-            </label>
-          </div>
-          <div className={styles[`form__backend`]}>
-            <input
-              className={styles[`form__backend-input`]}
-              id="form__backend-input"
-              type="radio"
-              name="position"
-              value="backend"
-              onChange={handleChange}
-              checked={formData.position === "backend"}
-            />
-            <label
-              className={styles[`form__backend-label`]}
-              htmlFor="form__backend-input"
-            >
-              Backend developer
-            </label>
-          </div>
-          <div className={styles[`form__designer`]}>
-            <input
-              className={styles[`form__designer-input`]}
-              id="form__designer-input"
-              type="radio"
-              name="position"
-              value="designer"
-              onChange={handleChange}
-              checked={formData.position === "designer"}
-            />
-            <label
-              className={styles[`form__designer-label`]}
-              htmlFor="form__designer-input"
-            >
-              Designer
-            </label>
-          </div>
-          <div className={styles[`form__qa`]}>
-            <input
-              className={styles[`form__qa-input`]}
-              id="form__qa-input"
-              type="radio"
-              name="position"
-              value="qa"
-              onChange={handleChange}
-              checked={formData.position === "qa"}
-            />
-            <label
-              className={styles[`form__qa-label`]}
-              htmlFor="form__qa-input"
-            >
-              QA
-            </label>
+          <div className={styles[`form__positions-wrapper`]}>
+            {isLoading && <Preloader />}
+            {positions.map(({ id, name }) => {
+              return (
+                <div className={styles[`form__position-type`]}>
+                  <input
+                    className={styles[`form__position-input`]}
+                    id={id}
+                    type="radio"
+                    name="position_id"
+                    value={name}
+                    onChange={handleChange}
+                    checked={formData.position_id === name}
+                  />
+                  <label
+                    className={styles[`form__position-label`]}
+                    htmlFor={id}
+                  >
+                    {name}
+                  </label>
+                </div>
+              );
+            })}
           </div>
           <div
             className={`${styles["form__validation"]} ${
-              validationErrors.position && styles["data__invalid"]
+              validationErrors.position_id && styles["data__invalid"]
             }`}
           >
-            {validationErrors.position && `${validationErrors.position}`}
+            {validationErrors.position_id && `${validationErrors.position_id}`}
           </div>
         </div>
         <div

@@ -141,6 +141,10 @@
   text-align: center;
 }
 
+.post_form__positions-wrapper__OEKp7 {
+  position: relative;
+}
+
 .post_form__name__KNIEa,
 .post_form__email__WU0Uq {
   margin-top: 50.5px;
@@ -235,27 +239,18 @@
   margin: 0px 0px 15px 0px;
 }
 
-.post_form__frontend__NO9jL,
-.post_form__backend__eqaK6,
-.post_form__designer__koUgZ,
-.post_form__qa__I233C {
+.post_form__position-type__fOSeF {
   position: relative;
 }
 
-.post_form__frontend-input__MQSwr,
-.post_form__backend-input__1_brQ,
-.post_form__designer-input___eOak,
-.post_form__qa-input___Ttfv {
+.post_form__position-input__FKbx7 {
   -webkit-appearance: none;
   -moz-appearance: none;
        appearance: none;
   position: absolute;
 }
 
-.post_form__frontend-label__1rNjG,
-.post_form__backend-label__8FbGt,
-.post_form__designer-label___xSQq,
-.post_form__qa-label__CI_D2 {
+.post_form__position-label__E1I__ {
   padding-left: 32px;
   font-size: 16px;
   font-style: normal;
@@ -263,10 +258,7 @@
   line-height: 26px;
   cursor: pointer;
 }
-.post_form__frontend-label__1rNjG::before,
-.post_form__backend-label__8FbGt::before,
-.post_form__designer-label___xSQq::before,
-.post_form__qa-label__CI_D2::before {
+.post_form__position-label__E1I__::before {
   content: "";
   display: block;
   width: 20px;
@@ -281,10 +273,7 @@
   z-index: 1;
   transition: border 0.3s linear;
 }
-.post_form__frontend-label__1rNjG::after,
-.post_form__backend-label__8FbGt::after,
-.post_form__designer-label___xSQq::after,
-.post_form__qa-label__CI_D2::after {
+.post_form__position-label__E1I__::after {
   content: "";
   display: block;
   width: 10px;
@@ -300,10 +289,7 @@
   transition: opacity 0.3s linear;
 }
 
-.post_form__frontend-input__MQSwr:checked + .post_form__frontend-label__1rNjG::after,
-.post_form__backend-input__1_brQ:checked + .post_form__backend-label__8FbGt::after,
-.post_form__designer-input___eOak:checked + .post_form__designer-label___xSQq::after,
-.post_form__qa-input___Ttfv:checked + .post_form__qa-label__CI_D2::after {
+.post_form__position-input__FKbx7:checked + .post_form__position-label__E1I__::after {
   opacity: 1;
 }
 

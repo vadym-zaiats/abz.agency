@@ -3,9 +3,9 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 const positionsSlice = createSlice({
   name: "positions",
   initialState: {
-    positions: null,
+    positions: [],
     success: false,
-    isLoading: false,
+    isLoading: true,
   },
   extraReducers: (builder) => {
     builder.addCase(setPositions.pending, (state) => {

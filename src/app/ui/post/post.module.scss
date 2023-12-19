@@ -13,6 +13,10 @@
   text-align: center;
 }
 
+.form__positions-wrapper {
+  position: relative;
+}
+
 .form__name,
 .form__email {
   margin-top: 50.5px;
@@ -102,26 +106,17 @@
   margin: 0px 0px 15px 0px;
 }
 
-.form__frontend,
-.form__backend,
-.form__designer,
-.form__qa {
+.form__position-type {
   position: relative;
 }
 
-.form__frontend-input,
-.form__backend-input,
-.form__designer-input,
-.form__qa-input {
+.form__position-input {
   -webkit-appearance: none;
   appearance: none;
   position: absolute;
 }
 
-.form__frontend-label,
-.form__backend-label,
-.form__designer-label,
-.form__qa-label {
+.form__position-label {
   padding-left: 32px;
   font-size: 16px;
   font-style: normal;
@@ -166,10 +161,7 @@
   }
 }
 
-.form__frontend-input:checked + .form__frontend-label::after,
-.form__backend-input:checked + .form__backend-label::after,
-.form__designer-input:checked + .form__designer-label::after,
-.form__qa-input:checked + .form__qa-label::after {
+.form__position-input:checked + .form__position-label::after {
   opacity: 1;
 }
 

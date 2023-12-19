@@ -44,7 +44,7 @@ export const postCard = createAsyncThunk(
       //   "https://frontend-test-assignment-api.abz.agency/api/v1/users",
       //   {
       //     method: "POST",
-      //     headers: { Token: token },
+      //     headers: { "Content-Type": "multipart/form-data", Token: token },
       //     body: formData,
       //   }
       // )
