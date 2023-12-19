@@ -100,11 +100,12 @@ export function Post() {
     return Object.keys(errors).length === 0;
   };
   const handleChange = (e) => {
-    const { name, value, type } = e.target;
-
+    const { name, value, type, id } = e.target;
+    console.log(formData);
     setFormData((prevData) => ({
       ...prevData,
-      [name]: type === "file" ? e.target.files[0] : value,
+      [name]:
+        type === "file" ? e.target.files[0] : type === "radio" ? +id : value,
     }));
 
     setValidationErrors({
@@ -117,7 +118,7 @@ export function Post() {
       name.length > 0 &&
       email.length > 0 &&
       phone.length > 0 &&
-      position_id.length > 0 &&
+      position_id !== "" &&
       photo !== null;
     return isFormValid;
   };
@@ -252,7 +253,7 @@ export function Post() {
                     name="position_id"
                     value={name}
                     onChange={handleChange}
-                    checked={formData.position_id === name}
+                    checked={formData.position_id === +id}
                   />
                   <label
                     className={styles[`form__position-label`]}
