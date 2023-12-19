@@ -1,12 +1,24 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { setToken } from "./tokenSlice";
 
-const peoplelice = createSlice({
+const peopleSlice = createSlice({
   name: "people",
   initialState: {
     people: [],
+    count: 6,
+    page: 1,
     totalUsers: 0,
     dataIsLoading: true,
+  },
+  reducers: {
+    setCount: (state, action) => {
+      state.count =
+        action.payload === undefined ? state.count + 6 : action.payload;
+    },
+    setPage: (state, action) => {
+      state.page =
+        action.payload === undefined ? state.page + 1 : action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(setPeople.pending, (state) => {
@@ -24,12 +36,20 @@ const peoplelice = createSlice({
   },
 });
 export const setPeople = createAsyncThunk(
-  "people/setpeople",
+  "people/setPeople",
   async ({ page }, { dispatch, rejectWithValue }) => {
-    const data = await fetch(
-      `https://frontend-test-assignment-api.abz.agency/api/v1/users?page=${page}&count=6`
-    ).then((res) => res.json());
-    return data;
+    try {
+      const res = await fetch(
+        `https://frontend-test-assignment-api.abz.agency/api/v1/users?page=${page}&count=6`
+      );
+      if (!res.ok) {
+        throw new Error("Server error");
+      }
+      const data = await res.json();
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.massage);
+    }
   }
 );
 export const postCard = createAsyncThunk(
@@ -38,7 +58,7 @@ export const postCard = createAsyncThunk(
     // const state = getState();
     // const token = state.tokenSlice.token;
     try {
-      const res = await dispatch(setToken());
+      await dispatch(setToken());
       console.log(formData);
       // await fetch(
       //   "https://frontend-test-assignment-api.abz.agency/api/v1/users",
@@ -66,11 +86,13 @@ export const postCard = createAsyncThunk(
       //   .catch((error) => {
       //     console.error(error);
       //   });
+      dispatch(setCount(6));
+      dispatch(setPage(1));
     } catch (error) {
       return rejectWithValue(error.massage);
     }
   }
 );
 
-export default peoplelice.reducer;
-export const {} = peoplelice.actions;
+export default peopleSlice.reducer;
+export const { setCount, setPage } = peopleSlice.actions;

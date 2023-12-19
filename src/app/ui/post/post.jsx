@@ -101,7 +101,6 @@ export function Post() {
   };
   const handleChange = (e) => {
     const { name, value, type, id } = e.target;
-    console.log(formData);
     setFormData((prevData) => ({
       ...prevData,
       [name]:

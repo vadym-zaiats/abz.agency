@@ -3,7 +3,7 @@
 import styles from "./get.module.scss";
 import { Card } from "../card/card";
 import { useDispatch, useSelector } from "react-redux";
-import { setPeople } from "@/redux/slices/peopleSlice";
+import { setPeople, setCount, setPage } from "@/redux/slices/peopleSlice";
 import { useEffect, useState } from "react";
 import { Preloader } from "../preloader/preloader";
 
@@ -11,13 +11,13 @@ export function Get() {
   const data = useSelector((state) => state.people.people);
   const dataIsLoading = useSelector((state) => state.people.dataIsLoading);
   const totalUsers = useSelector((state) => state.people.totalUsers);
+  const count = useSelector((state) => state.people.count);
+  const page = useSelector((state) => state.people.page);
   const dispatch = useDispatch();
-  const [count, setCount] = useState(6);
-  const [page, setPage] = useState(1);
 
   const handleIncrement = () => {
-    setCount((prevState) => prevState + 6);
-    setPage((prevState) => prevState + 1);
+    dispatch(setCount());
+    dispatch(setPage());
   };
 
   useEffect(() => {
