@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { postCard } from "@/redux/slices/peopleSlice";
 import { setPositions } from "@/redux/slices/positionsSlice";
 import { Preloader } from "../preloader/preloader";
+import { setToken } from "@/redux/slices/tokenSlice";
 
 export function Post() {
   const dispatch = useDispatch();
@@ -12,6 +13,7 @@ export function Post() {
   const [phoneIsFocused, setPhoneIsFocused] = useState(false);
   const positions = useSelector((state) => state.positions.positions);
   const isLoading = useSelector((state) => state.positions.isLoading);
+  const token = useSelector((state) => state.token.token);
   const nameFocus = useRef(null);
   const emailFocus = useRef(null);
   const phoneFocus = useRef(null);
@@ -124,7 +126,15 @@ export function Post() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      dispatch(postCard(formData));
+      const validFormData = new FormData();
+      Object.entries(formData).forEach(([key, value]) => {
+        if (key === "photo") {
+          validFormData.append(key, value);
+        } else {
+          validFormData.set(key, value);
+        }
+      });
+      dispatch(postCard({ validFormData, token }));
     } else {
       console.log("Form has validation errors");
     }
@@ -132,6 +142,7 @@ export function Post() {
   useEffect(() => {
     isFormFilled();
     dispatch(setPositions());
+    dispatch(setToken());
   }, []);
 
   return (

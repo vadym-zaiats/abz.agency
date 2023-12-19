@@ -25,7 +25,7 @@ const tokenSlice = createSlice({
 
 export const setToken = createAsyncThunk(
   "token/setToken",
-  async (_, { dispatch, rejectWithValue }) => {
+  async (_, { rejectWithValue }) => {
     try {
       const res = await fetch(
         `https://frontend-test-assignment-api.abz.agency/api/v1/token`

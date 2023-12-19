@@ -20,7 +20,7 @@ export function Get() {
 
   useEffect(() => {
     dispatch(setPeople({ count }));
-  }, [dispatch, count]);
+  }, [count]);
 
   return (
     <div className={styles[`get`]}>

@@ -49,39 +49,22 @@ export const setPeople = createAsyncThunk(
 );
 export const postCard = createAsyncThunk(
   "people/postCard",
-  async (formData, { dispatch, rejectWithValue, getState }) => {
-    // const state = getState();
-    // const token = state.tokenSlice.token;
+  async ({ validFormData, token }, { dispatch, rejectWithValue }) => {
     try {
-      await dispatch(setToken());
-      console.log(formData);
-      // await fetch(
-      //   "https://frontend-test-assignment-api.abz.agency/api/v1/users",
-      //   {
-      //     method: "POST",
-      //     headers: { "Content-Type": "multipart/form-data", Token: token },
-      //     body: formData,
-      //   }
-      // )
-      //   .then((res) => {
-      //     if (res.ok) {
-      //       return res.json();
-      //     } else {
-      //       console.error("Something went wrong");
-      //     }
-      //   })
-      //   .then((data) => {
-      //     console.log(data);
-      //     if (data.success) {
-      //       console.log(data);
-      //     } else {
-      //       console.log("proccess server errors");
-      //     }
-      //   })
-      //   .catch((error) => {
-      //     console.error(error);
-      //   });
+      const res = await fetch(
+        "https://frontend-test-assignment-api.abz.agency/api/v1/users",
+        {
+          method: "POST",
+          headers: { Token: token },
+          body: validFormData,
+        }
+      );
+      if (!res.ok) {
+        throw new Error("Server error");
+      }
+      const data = await res.json();
       dispatch(setCount(6));
+      return data;
     } catch (error) {
       return rejectWithValue(error.massage);
     }
