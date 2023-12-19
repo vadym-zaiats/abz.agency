@@ -3,8 +3,8 @@
 import styles from "./get.module.scss";
 import { Card } from "../card/card";
 import { useDispatch, useSelector } from "react-redux";
-import { setPeople, setCount, setPage } from "@/redux/slices/peopleSlice";
-import { useEffect, useState } from "react";
+import { setPeople, setCount } from "@/redux/slices/peopleSlice";
+import { useEffect } from "react";
 import { Preloader } from "../preloader/preloader";
 
 export function Get() {
@@ -12,17 +12,15 @@ export function Get() {
   const dataIsLoading = useSelector((state) => state.people.dataIsLoading);
   const totalUsers = useSelector((state) => state.people.totalUsers);
   const count = useSelector((state) => state.people.count);
-  const page = useSelector((state) => state.people.page);
   const dispatch = useDispatch();
 
   const handleIncrement = () => {
     dispatch(setCount());
-    dispatch(setPage());
   };
 
   useEffect(() => {
-    dispatch(setPeople({ page }));
-  }, [dispatch, count, page]);
+    dispatch(setPeople({ count }));
+  }, [dispatch, count]);
 
   return (
     <div className={styles[`get`]}>

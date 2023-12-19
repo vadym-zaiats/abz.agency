@@ -6,7 +6,6 @@ const peopleSlice = createSlice({
   initialState: {
     people: [],
     count: 6,
-    page: 1,
     totalUsers: 0,
     dataIsLoading: true,
   },
@@ -14,10 +13,6 @@ const peopleSlice = createSlice({
     setCount: (state, action) => {
       state.count =
         action.payload === undefined ? state.count + 6 : action.payload;
-    },
-    setPage: (state, action) => {
-      state.page =
-        action.payload === undefined ? state.page + 1 : action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -37,10 +32,10 @@ const peopleSlice = createSlice({
 });
 export const setPeople = createAsyncThunk(
   "people/setPeople",
-  async ({ page }, { dispatch, rejectWithValue }) => {
+  async ({ count }, { dispatch, rejectWithValue }) => {
     try {
       const res = await fetch(
-        `https://frontend-test-assignment-api.abz.agency/api/v1/users?page=${page}&count=6`
+        `https://frontend-test-assignment-api.abz.agency/api/v1/users?count=${count}`
       );
       if (!res.ok) {
         throw new Error("Server error");
@@ -87,7 +82,6 @@ export const postCard = createAsyncThunk(
       //     console.error(error);
       //   });
       dispatch(setCount(6));
-      dispatch(setPage(1));
     } catch (error) {
       return rejectWithValue(error.massage);
     }
@@ -95,4 +89,4 @@ export const postCard = createAsyncThunk(
 );
 
 export default peopleSlice.reducer;
-export const { setCount, setPage } = peopleSlice.actions;
+export const { setCount } = peopleSlice.actions;
